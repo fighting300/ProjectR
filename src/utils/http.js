@@ -1,6 +1,9 @@
+'use strict';
+
 let defaultReqData = {
     serviceType: '',
-    param: {}
+    param: {},
+    timeOut: common_timeOut
 };
 
 const common_url = 'http://192.168.1.1';
@@ -137,7 +140,7 @@ let fetchUpload = (arg) => {
         });
 }
 
-function _fetch(fetch_promise, timeout = 10000) {
+function _fetch(fetch_promise, timeout = common_timeOut) {
     let timeout_fn = null;
 
     //这是一个可以被reject的promise
