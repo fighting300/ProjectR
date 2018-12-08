@@ -7,7 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import AppContainer from './src/containers/AppContainer';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,13 +19,21 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  handleNavigationChange = () => {
+
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      // <View style={styles.container}>
+      //   <Text style={styles.welcome}>Welcome to React Native!</Text>
+      //   <Text style={styles.instructions}>To get started, edit App.js</Text>
+      //   <Text style={styles.instructions}>{instructions}</Text>
+      // </View>
+      <AppContainer ref={nav => {this.navigator = nav}}
+        onNavigationStateChange={this.handleNavigationChange}
+        uriPrefix="/app"/>
+      
     );
   }
 }
