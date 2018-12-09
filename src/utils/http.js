@@ -1,4 +1,5 @@
 'use strict';
+import { APIS, Token } from '../constants/API';
 
 let defaultReqData = {
     serviceType: '',
@@ -6,7 +7,7 @@ let defaultReqData = {
     timeOut: common_timeOut
 };
 
-const common_url = 'http://192.168.1.1';
+const common_url = APIS.Main_Path; 
 const common_timeOut = 5000;
 
 /**
@@ -32,20 +33,27 @@ let fetchGet = (arg) => {
             url += '&' + paramsArray.join('&')
         }
     }
-    console.log('request', url, params)
+
+    let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "charset": "utf-8"
+    }
+    if (Token) {
+        headers["Token"] = `${Token}`;
+    }
+    console.log('fetchGet request', url, params)
     // fetch 请求
-    _fetch(fetch(url, {
-        headers: {
-            //看后台需求决定配置参数
-        }
+    _fetch(fetch(url, { 
+        headers 
     }), timeOut)
         .then(response => response.json())
         .then(responseJson => { 
             console.log('result',responseJson);
-            if (responseJson.code == 200) { // 200为请求成功
-                success && success(responseJson.data)
+            if (responseJson.Status === 1) { // 200为请求成功
+                success && success(responseJson)
             } else {
-                fail && fail(responseJson.msg)//可以处理返回的错误信息
+                fail && fail(responseJson)//可以处理返回的错误信息
             }
         })
         .catch(e => {
@@ -68,21 +76,26 @@ let fetchPost = (arg) => {
     let url = common_url + serviceType;
 
     console.log('request', url, params)
+    let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "charset": "utf-8"
+    }
+    if (Token) {
+        headers["Token"] = `${Token}`;
+    }
     _fetch(fetch(url, {
         method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
+        headers,
         body: JSON.stringify(params)
     }), timeOut)
         .then(response => response.json())
         .then(responseJson => {
             console.log(responseJson)
-            if (responseJson.code == 200) {
-                success && success(responseJson.data)
+            if (responseJson.Status === 1) {
+                success && success(responseJson)
             } else {
-                fail && fail(responseJson.msg)
+                fail && fail(responseJson)
             }
         })
         .catch(e => {
@@ -128,8 +141,8 @@ let fetchUpload = (arg) => {
         .then(response => response.json())
         .then(responseJson => { 
             console.log(responseJson) 
-            if (responseJson.code == 200) { 
-                success && success(responseJson.data)
+            if (responseJson.Status === 1) { 
+                success && success(responseJson)
             } else {
                 fail && fail()
             }
