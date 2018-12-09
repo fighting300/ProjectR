@@ -4,14 +4,45 @@ import { createAppContainer, createStackNavigator, createBottomTabNavigator } fr
 import MainNavigator from './Main';
 import Activity from './Activity';
 
+class Live extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Live</Text>
+      </View>
+    );
+  }
+}
+class Cloud extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Cloud</Text>
+      </View>
+    );
+  }
+}
+class Community extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Community</Text>
+      </View>
+    );
+  }
+}
+
 const TabNavigator = createBottomTabNavigator(
   {
     Main: MainNavigator,
-    Activity: Activity
+    Activity: Activity,
+    Live: Live,
+    Cloud: Cloud,
+    Community: Community
   },
   {
     initialRouteName: "Main",
-    order: ["Main", "Activity"],
+    order: ['Main', 'Activity', 'Live', 'Cloud', 'Community'],
     tabBarOptions: {
       activeTintColor: '#2a5caa',
       activeBackgroundColor: '#fffef9',
