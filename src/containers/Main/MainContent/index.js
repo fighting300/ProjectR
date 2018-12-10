@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { View, Text, Image, ScrollView, FlatList, StyleSheet, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { fetchGet } from '../../../utils/http';
 import { APIS, APP } from '../../../constants/API';
 
@@ -9,22 +10,31 @@ const wWidth = Dimensions.get('window').width;
 // 请求参数 '/GetIndexPage?pageNo=1 &appId=110108&appKey=d0006&projectId=3 &modilarId=113175&styleId=304' 
 // 详情请求 '/GetContentDetail?contentId=1921829 &appId=110108&appKey=d0006&projectId=3'
 class MainContent extends React.Component {
-  static navigationOptions = {
-    title: '掌上三门',
-    headerStyle: {
-      backgroundColor: '#2a5caa',
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
+    console.log('navigator', navigation, navigationOptions);
+    return {
+      title: '掌上三门',
+      headerStyle: {
+        backgroundColor: '#2a5caa',
 
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontSize: 24,
-      fontWeight: 'normal',
-    },
-    headerLeft: <Text>Account</Text>,
-    headerRight: <Text>Search</Text>,
-    headerLeftContainerStyle: null,
-    headerRightContainerStyle: null
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontSize: 24,
+        fontWeight: 'normal',
+      },
+      headerLeft: <Icon.Button name="user" color="white" backgroundColor="transparent" onPress={() => {
+        navigation.navigate('Account')
+      }} />,
+      headerRight: <Icon.Button name="search" color="white" backgroundColor="transparent" onPress={() => {
+        navigation.navigate('Account')
+      }} />,
+      headerLeftContainerStyle: null,
+      headerRightContainerStyle: null
+    }
   };
+
 
   constructor(props) {
     super(props);

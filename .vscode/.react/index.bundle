@@ -105398,9 +105398,11 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
 
-  var _http = _$$_REQUIRE(_dependencyMap[10], "../../../utils/http");
+  var _FontAwesome = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "react-native-vector-icons/FontAwesome"));
 
-  var _API = _$$_REQUIRE(_dependencyMap[11], "../../../constants/API");
+  var _http = _$$_REQUIRE(_dependencyMap[11], "../../../utils/http");
+
+  var _API = _$$_REQUIRE(_dependencyMap[12], "../../../constants/API");
 
   var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/MainContent/index.js";
   var _components = {
@@ -105461,7 +105463,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: styles.itemContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 77
           }
         }, _react.default.createElement(_reactNative.Image, {
           style: styles.image,
@@ -105470,38 +105472,38 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 78
           }
         }), _react.default.createElement(_reactNative.View, {
           style: styles.textContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 69
+            lineNumber: 79
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.titleText,
           numberOfLines: 2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 80
           }
         }, item.Title), _react.default.createElement(_reactNative.View, {
           style: styles.bottomContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 81
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.timeText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72
+            lineNumber: 82
           }
         }, item.IssueTime), !!item.Tags && _react.default.createElement(_reactNative.Text, {
           style: styles.tipText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 84
           }
         }, item.Tags))));
       };
@@ -105511,7 +105513,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: styles.itemContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 92
           }
         }, _react.default.createElement(_reactNative.Image, {
           style: styles.image,
@@ -105520,38 +105522,38 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 93
           }
         }), _react.default.createElement(_reactNative.View, {
           style: styles.textContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 94
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.titleText,
           numberOfLines: 2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 95
           }
         }, item.Title), _react.default.createElement(_reactNative.View, {
           style: styles.bottomContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86
+            lineNumber: 96
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.timeText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 87
+            lineNumber: 97
           }
         }, item.IssueTime), !!item.Tags && _react.default.createElement(_reactNative.Text, {
           style: styles.tipText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 99
           }
         }, item.Tags))));
       };
@@ -105596,7 +105598,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: styles.container,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 125
           }
         }, _react.default.createElement(_reactNative.ScrollView, {
           style: styles.tabScroll,
@@ -105604,7 +105606,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           showsHorizontalScrollIndicator: false,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 126
           }
         }, tabsArray.map(function (item) {
           return _react.default.createElement(_reactNative.Text, {
@@ -105612,7 +105614,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             style: styles.tabText,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 121
+              lineNumber: 131
             }
           }, item);
         })), _react.default.createElement(_reactNative.FlatList, {
@@ -105632,7 +105634,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
               }],
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 132
+                lineNumber: 142
               }
             });
           },
@@ -105651,7 +105653,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           removeClippedSubviews: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 135
           }
         }));
       }
@@ -105659,31 +105661,50 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     return MainContent;
   }(_react.default.Component);
 
-  MainContent.navigationOptions = {
-    title: '掌上三门',
-    headerStyle: {
-      backgroundColor: '#2a5caa'
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontSize: 24,
-      fontWeight: 'normal'
-    },
-    headerLeft: _react.default.createElement(_reactNative.Text, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
-      }
-    }, "Account"),
-    headerRight: _react.default.createElement(_reactNative.Text, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24
-      }
-    }, "Search"),
-    headerLeftContainerStyle: null,
-    headerRightContainerStyle: null
+  MainContent.navigationOptions = function (_ref3) {
+    var navigation = _ref3.navigation,
+        navigationOptions = _ref3.navigationOptions;
+    var params = navigation.state.params;
+    console.log('navigator', navigation, navigationOptions);
+    return {
+      title: '掌上三门',
+      headerStyle: {
+        backgroundColor: '#2a5caa'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontSize: 24,
+        fontWeight: 'normal'
+      },
+      headerLeft: _react.default.createElement(_FontAwesome.default.Button, {
+        name: "user",
+        color: "white",
+        backgroundColor: "transparent",
+        onPress: function onPress() {
+          navigation.navigate('Account');
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        }
+      }),
+      headerRight: _react.default.createElement(_FontAwesome.default.Button, {
+        name: "search",
+        color: "white",
+        backgroundColor: "transparent",
+        onPress: function onPress() {
+          navigation.navigate('Account');
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      }),
+      headerLeftContainerStyle: null,
+      headerRightContainerStyle: null
+    };
   };
+
   MainContent = _wrapComponent("MainContent")(MainContent);
   var ITEM_HEIGHT = 120;
   var SEPERATOR_HEIGHT = _reactNative.StyleSheet.hairlineWidth;
@@ -105795,7 +105816,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     Tags: '掌上宣讲所',
     ImgUrl: 'http://f.hiphotos.baidu.com/zhidao/pic/item/c75c10385343fbf2d77d69d5b47eca8064388ff7.jpg'
   }];
-},672,[1,49,19,20,35,38,41,53,184,2,673,674],"src/containers/Main/MainContent/index.js");
+},672,[1,49,19,20,35,38,41,53,184,2,682,673,674],"src/containers/Main/MainContent/index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -106250,6 +106271,2616 @@ __d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
   "displayName": "ProjectR"
 };
 },678,[],"app.json");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.getImageSource = exports.ToolbarAndroid = exports.TabBarItemIOS = exports.TabBarItem = exports.Button = exports.default = void 0;
+
+  var _createIconSet = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "./lib/create-icon-set"));
+
+  var _FontAwesome = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "./glyphmaps/FontAwesome.json"));
+
+  var iconSet = (0, _createIconSet.default)(_FontAwesome.default, 'FontAwesome', 'FontAwesome.ttf');
+  var _default = iconSet;
+  exports.default = _default;
+  var Button = iconSet.Button;
+  exports.Button = Button;
+  var TabBarItem = iconSet.TabBarItem;
+  exports.TabBarItem = TabBarItem;
+  var TabBarItemIOS = iconSet.TabBarItemIOS;
+  exports.TabBarItemIOS = TabBarItemIOS;
+  var ToolbarAndroid = iconSet.ToolbarAndroid;
+  exports.ToolbarAndroid = ToolbarAndroid;
+  var getImageSource = iconSet.getImageSource;
+  exports.getImageSource = getImageSource;
+},682,[1,684,683],"node_modules/react-native-vector-icons/FontAwesome.js");
+__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
+  module.exports = {
+  "glass": 61440,
+  "music": 61441,
+  "search": 61442,
+  "envelope-o": 61443,
+  "heart": 61444,
+  "star": 61445,
+  "star-o": 61446,
+  "user": 61447,
+  "film": 61448,
+  "th-large": 61449,
+  "th": 61450,
+  "th-list": 61451,
+  "check": 61452,
+  "remove": 61453,
+  "close": 61453,
+  "times": 61453,
+  "search-plus": 61454,
+  "search-minus": 61456,
+  "power-off": 61457,
+  "signal": 61458,
+  "gear": 61459,
+  "cog": 61459,
+  "trash-o": 61460,
+  "home": 61461,
+  "file-o": 61462,
+  "clock-o": 61463,
+  "road": 61464,
+  "download": 61465,
+  "arrow-circle-o-down": 61466,
+  "arrow-circle-o-up": 61467,
+  "inbox": 61468,
+  "play-circle-o": 61469,
+  "rotate-right": 61470,
+  "repeat": 61470,
+  "refresh": 61473,
+  "list-alt": 61474,
+  "lock": 61475,
+  "flag": 61476,
+  "headphones": 61477,
+  "volume-off": 61478,
+  "volume-down": 61479,
+  "volume-up": 61480,
+  "qrcode": 61481,
+  "barcode": 61482,
+  "tag": 61483,
+  "tags": 61484,
+  "book": 61485,
+  "bookmark": 61486,
+  "print": 61487,
+  "camera": 61488,
+  "font": 61489,
+  "bold": 61490,
+  "italic": 61491,
+  "text-height": 61492,
+  "text-width": 61493,
+  "align-left": 61494,
+  "align-center": 61495,
+  "align-right": 61496,
+  "align-justify": 61497,
+  "list": 61498,
+  "dedent": 61499,
+  "outdent": 61499,
+  "indent": 61500,
+  "video-camera": 61501,
+  "photo": 61502,
+  "image": 61502,
+  "picture-o": 61502,
+  "pencil": 61504,
+  "map-marker": 61505,
+  "adjust": 61506,
+  "tint": 61507,
+  "edit": 61508,
+  "pencil-square-o": 61508,
+  "share-square-o": 61509,
+  "check-square-o": 61510,
+  "arrows": 61511,
+  "step-backward": 61512,
+  "fast-backward": 61513,
+  "backward": 61514,
+  "play": 61515,
+  "pause": 61516,
+  "stop": 61517,
+  "forward": 61518,
+  "fast-forward": 61520,
+  "step-forward": 61521,
+  "eject": 61522,
+  "chevron-left": 61523,
+  "chevron-right": 61524,
+  "plus-circle": 61525,
+  "minus-circle": 61526,
+  "times-circle": 61527,
+  "check-circle": 61528,
+  "question-circle": 61529,
+  "info-circle": 61530,
+  "crosshairs": 61531,
+  "times-circle-o": 61532,
+  "check-circle-o": 61533,
+  "ban": 61534,
+  "arrow-left": 61536,
+  "arrow-right": 61537,
+  "arrow-up": 61538,
+  "arrow-down": 61539,
+  "mail-forward": 61540,
+  "share": 61540,
+  "expand": 61541,
+  "compress": 61542,
+  "plus": 61543,
+  "minus": 61544,
+  "asterisk": 61545,
+  "exclamation-circle": 61546,
+  "gift": 61547,
+  "leaf": 61548,
+  "fire": 61549,
+  "eye": 61550,
+  "eye-slash": 61552,
+  "warning": 61553,
+  "exclamation-triangle": 61553,
+  "plane": 61554,
+  "calendar": 61555,
+  "random": 61556,
+  "comment": 61557,
+  "magnet": 61558,
+  "chevron-up": 61559,
+  "chevron-down": 61560,
+  "retweet": 61561,
+  "shopping-cart": 61562,
+  "folder": 61563,
+  "folder-open": 61564,
+  "arrows-v": 61565,
+  "arrows-h": 61566,
+  "bar-chart-o": 61568,
+  "bar-chart": 61568,
+  "twitter-square": 61569,
+  "facebook-square": 61570,
+  "camera-retro": 61571,
+  "key": 61572,
+  "gears": 61573,
+  "cogs": 61573,
+  "comments": 61574,
+  "thumbs-o-up": 61575,
+  "thumbs-o-down": 61576,
+  "star-half": 61577,
+  "heart-o": 61578,
+  "sign-out": 61579,
+  "linkedin-square": 61580,
+  "thumb-tack": 61581,
+  "external-link": 61582,
+  "sign-in": 61584,
+  "trophy": 61585,
+  "github-square": 61586,
+  "upload": 61587,
+  "lemon-o": 61588,
+  "phone": 61589,
+  "square-o": 61590,
+  "bookmark-o": 61591,
+  "phone-square": 61592,
+  "twitter": 61593,
+  "facebook-f": 61594,
+  "facebook": 61594,
+  "github": 61595,
+  "unlock": 61596,
+  "credit-card": 61597,
+  "feed": 61598,
+  "rss": 61598,
+  "hdd-o": 61600,
+  "bullhorn": 61601,
+  "bell": 61683,
+  "certificate": 61603,
+  "hand-o-right": 61604,
+  "hand-o-left": 61605,
+  "hand-o-up": 61606,
+  "hand-o-down": 61607,
+  "arrow-circle-left": 61608,
+  "arrow-circle-right": 61609,
+  "arrow-circle-up": 61610,
+  "arrow-circle-down": 61611,
+  "globe": 61612,
+  "wrench": 61613,
+  "tasks": 61614,
+  "filter": 61616,
+  "briefcase": 61617,
+  "arrows-alt": 61618,
+  "group": 61632,
+  "users": 61632,
+  "chain": 61633,
+  "link": 61633,
+  "cloud": 61634,
+  "flask": 61635,
+  "cut": 61636,
+  "scissors": 61636,
+  "copy": 61637,
+  "files-o": 61637,
+  "paperclip": 61638,
+  "save": 61639,
+  "floppy-o": 61639,
+  "square": 61640,
+  "navicon": 61641,
+  "reorder": 61641,
+  "bars": 61641,
+  "list-ul": 61642,
+  "list-ol": 61643,
+  "strikethrough": 61644,
+  "underline": 61645,
+  "table": 61646,
+  "magic": 61648,
+  "truck": 61649,
+  "pinterest": 61650,
+  "pinterest-square": 61651,
+  "google-plus-square": 61652,
+  "google-plus": 61653,
+  "money": 61654,
+  "caret-down": 61655,
+  "caret-up": 61656,
+  "caret-left": 61657,
+  "caret-right": 61658,
+  "columns": 61659,
+  "unsorted": 61660,
+  "sort": 61660,
+  "sort-down": 61661,
+  "sort-desc": 61661,
+  "sort-up": 61662,
+  "sort-asc": 61662,
+  "envelope": 61664,
+  "linkedin": 61665,
+  "rotate-left": 61666,
+  "undo": 61666,
+  "legal": 61667,
+  "gavel": 61667,
+  "dashboard": 61668,
+  "tachometer": 61668,
+  "comment-o": 61669,
+  "comments-o": 61670,
+  "flash": 61671,
+  "bolt": 61671,
+  "sitemap": 61672,
+  "umbrella": 61673,
+  "paste": 61674,
+  "clipboard": 61674,
+  "lightbulb-o": 61675,
+  "exchange": 61676,
+  "cloud-download": 61677,
+  "cloud-upload": 61678,
+  "user-md": 61680,
+  "stethoscope": 61681,
+  "suitcase": 61682,
+  "bell-o": 61602,
+  "coffee": 61684,
+  "cutlery": 61685,
+  "file-text-o": 61686,
+  "building-o": 61687,
+  "hospital-o": 61688,
+  "ambulance": 61689,
+  "medkit": 61690,
+  "fighter-jet": 61691,
+  "beer": 61692,
+  "h-square": 61693,
+  "plus-square": 61694,
+  "angle-double-left": 61696,
+  "angle-double-right": 61697,
+  "angle-double-up": 61698,
+  "angle-double-down": 61699,
+  "angle-left": 61700,
+  "angle-right": 61701,
+  "angle-up": 61702,
+  "angle-down": 61703,
+  "desktop": 61704,
+  "laptop": 61705,
+  "tablet": 61706,
+  "mobile-phone": 61707,
+  "mobile": 61707,
+  "circle-o": 61708,
+  "quote-left": 61709,
+  "quote-right": 61710,
+  "spinner": 61712,
+  "circle": 61713,
+  "mail-reply": 61714,
+  "reply": 61714,
+  "github-alt": 61715,
+  "folder-o": 61716,
+  "folder-open-o": 61717,
+  "smile-o": 61720,
+  "frown-o": 61721,
+  "meh-o": 61722,
+  "gamepad": 61723,
+  "keyboard-o": 61724,
+  "flag-o": 61725,
+  "flag-checkered": 61726,
+  "terminal": 61728,
+  "code": 61729,
+  "mail-reply-all": 61730,
+  "reply-all": 61730,
+  "star-half-empty": 61731,
+  "star-half-full": 61731,
+  "star-half-o": 61731,
+  "location-arrow": 61732,
+  "crop": 61733,
+  "code-fork": 61734,
+  "unlink": 61735,
+  "chain-broken": 61735,
+  "question": 61736,
+  "info": 61737,
+  "exclamation": 61738,
+  "superscript": 61739,
+  "subscript": 61740,
+  "eraser": 61741,
+  "puzzle-piece": 61742,
+  "microphone": 61744,
+  "microphone-slash": 61745,
+  "shield": 61746,
+  "calendar-o": 61747,
+  "fire-extinguisher": 61748,
+  "rocket": 61749,
+  "maxcdn": 61750,
+  "chevron-circle-left": 61751,
+  "chevron-circle-right": 61752,
+  "chevron-circle-up": 61753,
+  "chevron-circle-down": 61754,
+  "html5": 61755,
+  "css3": 61756,
+  "anchor": 61757,
+  "unlock-alt": 61758,
+  "bullseye": 61760,
+  "ellipsis-h": 61761,
+  "ellipsis-v": 61762,
+  "rss-square": 61763,
+  "play-circle": 61764,
+  "ticket": 61765,
+  "minus-square": 61766,
+  "minus-square-o": 61767,
+  "level-up": 61768,
+  "level-down": 61769,
+  "check-square": 61770,
+  "pencil-square": 61771,
+  "external-link-square": 61772,
+  "share-square": 61773,
+  "compass": 61774,
+  "toggle-down": 61776,
+  "caret-square-o-down": 61776,
+  "toggle-up": 61777,
+  "caret-square-o-up": 61777,
+  "toggle-right": 61778,
+  "caret-square-o-right": 61778,
+  "euro": 61779,
+  "eur": 61779,
+  "gbp": 61780,
+  "dollar": 61781,
+  "usd": 61781,
+  "rupee": 61782,
+  "inr": 61782,
+  "cny": 61783,
+  "rmb": 61783,
+  "yen": 61783,
+  "jpy": 61783,
+  "ruble": 61784,
+  "rouble": 61784,
+  "rub": 61784,
+  "won": 61785,
+  "krw": 61785,
+  "bitcoin": 61786,
+  "btc": 61786,
+  "file": 61787,
+  "file-text": 61788,
+  "sort-alpha-asc": 61789,
+  "sort-alpha-desc": 61790,
+  "sort-amount-asc": 61792,
+  "sort-amount-desc": 61793,
+  "sort-numeric-asc": 61794,
+  "sort-numeric-desc": 61795,
+  "thumbs-up": 61796,
+  "thumbs-down": 61797,
+  "youtube-square": 61798,
+  "youtube": 61799,
+  "xing": 61800,
+  "xing-square": 61801,
+  "youtube-play": 61802,
+  "dropbox": 61803,
+  "stack-overflow": 61804,
+  "instagram": 61805,
+  "flickr": 61806,
+  "adn": 61808,
+  "bitbucket": 61809,
+  "bitbucket-square": 61810,
+  "tumblr": 61811,
+  "tumblr-square": 61812,
+  "long-arrow-down": 61813,
+  "long-arrow-up": 61814,
+  "long-arrow-left": 61815,
+  "long-arrow-right": 61816,
+  "apple": 61817,
+  "windows": 61818,
+  "android": 61819,
+  "linux": 61820,
+  "dribbble": 61821,
+  "skype": 61822,
+  "foursquare": 61824,
+  "trello": 61825,
+  "female": 61826,
+  "male": 61827,
+  "gittip": 61828,
+  "gratipay": 61828,
+  "sun-o": 61829,
+  "moon-o": 61830,
+  "archive": 61831,
+  "bug": 61832,
+  "vk": 61833,
+  "weibo": 61834,
+  "renren": 61835,
+  "pagelines": 61836,
+  "stack-exchange": 61837,
+  "arrow-circle-o-right": 61838,
+  "arrow-circle-o-left": 61840,
+  "toggle-left": 61841,
+  "caret-square-o-left": 61841,
+  "dot-circle-o": 61842,
+  "wheelchair": 61843,
+  "vimeo-square": 61844,
+  "turkish-lira": 61845,
+  "try": 61845,
+  "plus-square-o": 61846,
+  "space-shuttle": 61847,
+  "slack": 61848,
+  "envelope-square": 61849,
+  "wordpress": 61850,
+  "openid": 61851,
+  "institution": 61852,
+  "bank": 61852,
+  "university": 61852,
+  "mortar-board": 61853,
+  "graduation-cap": 61853,
+  "yahoo": 61854,
+  "google": 61856,
+  "reddit": 61857,
+  "reddit-square": 61858,
+  "stumbleupon-circle": 61859,
+  "stumbleupon": 61860,
+  "delicious": 61861,
+  "digg": 61862,
+  "pied-piper-pp": 61863,
+  "pied-piper-alt": 61864,
+  "drupal": 61865,
+  "joomla": 61866,
+  "language": 61867,
+  "fax": 61868,
+  "building": 61869,
+  "child": 61870,
+  "paw": 61872,
+  "spoon": 61873,
+  "cube": 61874,
+  "cubes": 61875,
+  "behance": 61876,
+  "behance-square": 61877,
+  "steam": 61878,
+  "steam-square": 61879,
+  "recycle": 61880,
+  "automobile": 61881,
+  "car": 61881,
+  "cab": 61882,
+  "taxi": 61882,
+  "tree": 61883,
+  "spotify": 61884,
+  "deviantart": 61885,
+  "soundcloud": 61886,
+  "database": 61888,
+  "file-pdf-o": 61889,
+  "file-word-o": 61890,
+  "file-excel-o": 61891,
+  "file-powerpoint-o": 61892,
+  "file-photo-o": 61893,
+  "file-picture-o": 61893,
+  "file-image-o": 61893,
+  "file-zip-o": 61894,
+  "file-archive-o": 61894,
+  "file-sound-o": 61895,
+  "file-audio-o": 61895,
+  "file-movie-o": 61896,
+  "file-video-o": 61896,
+  "file-code-o": 61897,
+  "vine": 61898,
+  "codepen": 61899,
+  "jsfiddle": 61900,
+  "life-bouy": 61901,
+  "life-buoy": 61901,
+  "life-saver": 61901,
+  "support": 61901,
+  "life-ring": 61901,
+  "circle-o-notch": 61902,
+  "ra": 61904,
+  "resistance": 61904,
+  "rebel": 61904,
+  "ge": 61905,
+  "empire": 61905,
+  "git-square": 61906,
+  "git": 61907,
+  "y-combinator-square": 61908,
+  "yc-square": 61908,
+  "hacker-news": 61908,
+  "tencent-weibo": 61909,
+  "qq": 61910,
+  "wechat": 61911,
+  "weixin": 61911,
+  "send": 61912,
+  "paper-plane": 61912,
+  "send-o": 61913,
+  "paper-plane-o": 61913,
+  "history": 61914,
+  "circle-thin": 61915,
+  "header": 61916,
+  "paragraph": 61917,
+  "sliders": 61918,
+  "share-alt": 61920,
+  "share-alt-square": 61921,
+  "bomb": 61922,
+  "soccer-ball-o": 61923,
+  "futbol-o": 61923,
+  "tty": 61924,
+  "binoculars": 61925,
+  "plug": 61926,
+  "slideshare": 61927,
+  "twitch": 61928,
+  "yelp": 61929,
+  "newspaper-o": 61930,
+  "wifi": 61931,
+  "calculator": 61932,
+  "paypal": 61933,
+  "google-wallet": 61934,
+  "cc-visa": 61936,
+  "cc-mastercard": 61937,
+  "cc-discover": 61938,
+  "cc-amex": 61939,
+  "cc-paypal": 61940,
+  "cc-stripe": 61941,
+  "bell-slash": 61942,
+  "bell-slash-o": 61943,
+  "trash": 61944,
+  "copyright": 61945,
+  "at": 61946,
+  "eyedropper": 61947,
+  "paint-brush": 61948,
+  "birthday-cake": 61949,
+  "area-chart": 61950,
+  "pie-chart": 61952,
+  "line-chart": 61953,
+  "lastfm": 61954,
+  "lastfm-square": 61955,
+  "toggle-off": 61956,
+  "toggle-on": 61957,
+  "bicycle": 61958,
+  "bus": 61959,
+  "ioxhost": 61960,
+  "angellist": 61961,
+  "cc": 61962,
+  "shekel": 61963,
+  "sheqel": 61963,
+  "ils": 61963,
+  "meanpath": 61964,
+  "buysellads": 61965,
+  "connectdevelop": 61966,
+  "dashcube": 61968,
+  "forumbee": 61969,
+  "leanpub": 61970,
+  "sellsy": 61971,
+  "shirtsinbulk": 61972,
+  "simplybuilt": 61973,
+  "skyatlas": 61974,
+  "cart-plus": 61975,
+  "cart-arrow-down": 61976,
+  "diamond": 61977,
+  "ship": 61978,
+  "user-secret": 61979,
+  "motorcycle": 61980,
+  "street-view": 61981,
+  "heartbeat": 61982,
+  "venus": 61985,
+  "mars": 61986,
+  "mercury": 61987,
+  "intersex": 61988,
+  "transgender": 61988,
+  "transgender-alt": 61989,
+  "venus-double": 61990,
+  "mars-double": 61991,
+  "venus-mars": 61992,
+  "mars-stroke": 61993,
+  "mars-stroke-v": 61994,
+  "mars-stroke-h": 61995,
+  "neuter": 61996,
+  "genderless": 61997,
+  "facebook-official": 62000,
+  "pinterest-p": 62001,
+  "whatsapp": 62002,
+  "server": 62003,
+  "user-plus": 62004,
+  "user-times": 62005,
+  "hotel": 62006,
+  "bed": 62006,
+  "viacoin": 62007,
+  "train": 62008,
+  "subway": 62009,
+  "medium": 62010,
+  "yc": 62011,
+  "y-combinator": 62011,
+  "optin-monster": 62012,
+  "opencart": 62013,
+  "expeditedssl": 62014,
+  "battery-4": 62016,
+  "battery": 62016,
+  "battery-full": 62016,
+  "battery-3": 62017,
+  "battery-three-quarters": 62017,
+  "battery-2": 62018,
+  "battery-half": 62018,
+  "battery-1": 62019,
+  "battery-quarter": 62019,
+  "battery-0": 62020,
+  "battery-empty": 62020,
+  "mouse-pointer": 62021,
+  "i-cursor": 62022,
+  "object-group": 62023,
+  "object-ungroup": 62024,
+  "sticky-note": 62025,
+  "sticky-note-o": 62026,
+  "cc-jcb": 62027,
+  "cc-diners-club": 62028,
+  "clone": 62029,
+  "balance-scale": 62030,
+  "hourglass-o": 62032,
+  "hourglass-1": 62033,
+  "hourglass-start": 62033,
+  "hourglass-2": 62034,
+  "hourglass-half": 62034,
+  "hourglass-3": 62035,
+  "hourglass-end": 62035,
+  "hourglass": 62036,
+  "hand-grab-o": 62037,
+  "hand-rock-o": 62037,
+  "hand-stop-o": 62038,
+  "hand-paper-o": 62038,
+  "hand-scissors-o": 62039,
+  "hand-lizard-o": 62040,
+  "hand-spock-o": 62041,
+  "hand-pointer-o": 62042,
+  "hand-peace-o": 62043,
+  "trademark": 62044,
+  "registered": 62045,
+  "creative-commons": 62046,
+  "gg": 62048,
+  "gg-circle": 62049,
+  "tripadvisor": 62050,
+  "odnoklassniki": 62051,
+  "odnoklassniki-square": 62052,
+  "get-pocket": 62053,
+  "wikipedia-w": 62054,
+  "safari": 62055,
+  "chrome": 62056,
+  "firefox": 62057,
+  "opera": 62058,
+  "internet-explorer": 62059,
+  "tv": 62060,
+  "television": 62060,
+  "contao": 62061,
+  "500px": 62062,
+  "amazon": 62064,
+  "calendar-plus-o": 62065,
+  "calendar-minus-o": 62066,
+  "calendar-times-o": 62067,
+  "calendar-check-o": 62068,
+  "industry": 62069,
+  "map-pin": 62070,
+  "map-signs": 62071,
+  "map-o": 62072,
+  "map": 62073,
+  "commenting": 62074,
+  "commenting-o": 62075,
+  "houzz": 62076,
+  "vimeo": 62077,
+  "black-tie": 62078,
+  "fonticons": 62080,
+  "reddit-alien": 62081,
+  "edge": 62082,
+  "credit-card-alt": 62083,
+  "codiepie": 62084,
+  "modx": 62085,
+  "fort-awesome": 62086,
+  "usb": 62087,
+  "product-hunt": 62088,
+  "mixcloud": 62089,
+  "scribd": 62090,
+  "pause-circle": 62091,
+  "pause-circle-o": 62092,
+  "stop-circle": 62093,
+  "stop-circle-o": 62094,
+  "shopping-bag": 62096,
+  "shopping-basket": 62097,
+  "hashtag": 62098,
+  "bluetooth": 62099,
+  "bluetooth-b": 62100,
+  "percent": 62101,
+  "gitlab": 62102,
+  "wpbeginner": 62103,
+  "wpforms": 62104,
+  "envira": 62105,
+  "universal-access": 62106,
+  "wheelchair-alt": 62107,
+  "question-circle-o": 62108,
+  "blind": 62109,
+  "audio-description": 62110,
+  "volume-control-phone": 62112,
+  "braille": 62113,
+  "assistive-listening-systems": 62114,
+  "asl-interpreting": 62115,
+  "american-sign-language-interpreting": 62115,
+  "deafness": 62116,
+  "hard-of-hearing": 62116,
+  "deaf": 62116,
+  "glide": 62117,
+  "glide-g": 62118,
+  "signing": 62119,
+  "sign-language": 62119,
+  "low-vision": 62120,
+  "viadeo": 62121,
+  "viadeo-square": 62122,
+  "snapchat": 62123,
+  "snapchat-ghost": 62124,
+  "snapchat-square": 62125,
+  "pied-piper": 62126,
+  "first-order": 62128,
+  "yoast": 62129,
+  "themeisle": 62130,
+  "google-plus-circle": 62131,
+  "google-plus-official": 62131,
+  "fa": 62132,
+  "font-awesome": 62132,
+  "handshake-o": 62133,
+  "envelope-open": 62134,
+  "envelope-open-o": 62135,
+  "linode": 62136,
+  "address-book": 62137,
+  "address-book-o": 62138,
+  "vcard": 62139,
+  "address-card": 62139,
+  "vcard-o": 62140,
+  "address-card-o": 62140,
+  "user-circle": 62141,
+  "user-circle-o": 62142,
+  "user-o": 62144,
+  "id-badge": 62145,
+  "drivers-license": 62146,
+  "id-card": 62146,
+  "drivers-license-o": 62147,
+  "id-card-o": 62147,
+  "quora": 62148,
+  "free-code-camp": 62149,
+  "telegram": 62150,
+  "thermometer-4": 62151,
+  "thermometer": 62151,
+  "thermometer-full": 62151,
+  "thermometer-3": 62152,
+  "thermometer-three-quarters": 62152,
+  "thermometer-2": 62153,
+  "thermometer-half": 62153,
+  "thermometer-1": 62154,
+  "thermometer-quarter": 62154,
+  "thermometer-0": 62155,
+  "thermometer-empty": 62155,
+  "shower": 62156,
+  "bathtub": 62157,
+  "s15": 62157,
+  "bath": 62157,
+  "podcast": 62158,
+  "window-maximize": 62160,
+  "window-minimize": 62161,
+  "window-restore": 62162,
+  "times-rectangle": 62163,
+  "window-close": 62163,
+  "times-rectangle-o": 62164,
+  "window-close-o": 62164,
+  "bandcamp": 62165,
+  "grav": 62166,
+  "etsy": 62167,
+  "imdb": 62168,
+  "ravelry": 62169,
+  "eercast": 62170,
+  "microchip": 62171,
+  "snowflake-o": 62172,
+  "superpowers": 62173,
+  "wpexplorer": 62174,
+  "meetup": 62176
+};
+},683,[],"node_modules/react-native-vector-icons/glyphmaps/FontAwesome.json");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createIconSet;
+  exports.DEFAULT_ICON_COLOR = exports.DEFAULT_ICON_SIZE = exports.NativeIconAPI = void 0;
+
+  var _toConsumableArray2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/toConsumableArray"));
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/extends"));
+
+  var _objectWithoutProperties2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/objectWithoutProperties"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[10], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./../../react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[13], "./react-native");
+
+  var _ensureNativeModuleAvailable = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "./ensure-native-module-available"));
+
+  var _iconButton = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[15], "./icon-button"));
+
+  var _tabBarItemIos = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[16], "./tab-bar-item-ios"));
+
+  var _toolbarAndroid = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[17], "./toolbar-android"));
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/create-icon-set.js";
+  var _components = {
+    Icon: {
+      displayName: "Icon",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/create-icon-set.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var NativeIconAPI = _reactNative.NativeModules.RNVectorIconsManager || _reactNative.NativeModules.RNVectorIconsModule;
+  exports.NativeIconAPI = NativeIconAPI;
+  var DEFAULT_ICON_SIZE = 12;
+  exports.DEFAULT_ICON_SIZE = DEFAULT_ICON_SIZE;
+  var DEFAULT_ICON_COLOR = 'black';
+  exports.DEFAULT_ICON_COLOR = DEFAULT_ICON_COLOR;
+
+  function createIconSet(glyphMap, fontFamily, fontFile, fontStyle) {
+    var fontBasename = fontFile ? fontFile.replace(/\.(otf|ttf)$/, '') : fontFamily;
+
+    var fontReference = _reactNative.Platform.select({
+      windows: "Assets/" + fontFile + "#" + fontFamily,
+      android: fontBasename,
+      web: fontBasename,
+      default: fontFamily
+    });
+
+    var IconNamePropType = _propTypes.default.oneOf(Object.keys(glyphMap));
+
+    var Icon = function (_PureComponent) {
+      (0, _inherits2.default)(Icon, _PureComponent);
+
+      function Icon() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        (0, _classCallCheck2.default)(this, Icon);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Icon)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.root = null;
+
+        _this.handleRef = function (ref) {
+          _this.root = ref;
+        };
+
+        return _this;
+      }
+
+      (0, _createClass2.default)(Icon, [{
+        key: "setNativeProps",
+        value: function setNativeProps(nativeProps) {
+          if (this.root) {
+            this.root.setNativeProps(nativeProps);
+          }
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _this$props = this.props,
+              name = _this$props.name,
+              size = _this$props.size,
+              color = _this$props.color,
+              style = _this$props.style,
+              children = _this$props.children,
+              props = (0, _objectWithoutProperties2.default)(_this$props, ["name", "size", "color", "style", "children"]);
+          var glyph = name ? glyphMap[name] || '?' : '';
+
+          if (typeof glyph === 'number') {
+            glyph = String.fromCharCode(glyph);
+          }
+
+          var styleDefaults = {
+            fontSize: size,
+            color: color
+          };
+          var styleOverrides = {
+            fontFamily: fontReference,
+            fontWeight: 'normal',
+            fontStyle: 'normal'
+          };
+          props.style = [styleDefaults, style, styleOverrides, fontStyle || {}];
+          props.ref = this.handleRef;
+          return _react.default.createElement(_reactNative.Text, (0, _extends2.default)({}, props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 92
+            }
+          }), glyph, children);
+        }
+      }]);
+      return Icon;
+    }(_react.PureComponent);
+
+    Icon.propTypes = {
+      allowFontScaling: _propTypes.default.bool,
+      name: IconNamePropType,
+      size: _propTypes.default.number,
+      color: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      children: _propTypes.default.node,
+      style: _propTypes.default.any
+    };
+    Icon.defaultProps = {
+      size: DEFAULT_ICON_SIZE,
+      allowFontScaling: false
+    };
+    Icon = _wrapComponent("Icon")(Icon);
+    var imageSourceCache = {};
+
+    function getImageSource(name) {
+      var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_ICON_SIZE;
+      var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : DEFAULT_ICON_COLOR;
+      (0, _ensureNativeModuleAvailable.default)();
+      var glyph = glyphMap[name] || '?';
+
+      if (typeof glyph === 'number') {
+        glyph = String.fromCharCode(glyph);
+      }
+
+      var processedColor = (0, _reactNative.processColor)(color);
+      var cacheKey = glyph + ":" + size + ":" + processedColor;
+
+      var scale = _reactNative.PixelRatio.get();
+
+      return new Promise(function (resolve, reject) {
+        var cached = imageSourceCache[cacheKey];
+
+        if (typeof cached !== 'undefined') {
+          if (!cached || cached instanceof Error) {
+            reject(cached);
+          } else {
+            resolve({
+              uri: cached,
+              scale: scale
+            });
+          }
+        } else {
+          NativeIconAPI.getImageForFont(fontReference, glyph, size, processedColor, function (err, image) {
+            var error = typeof err === 'string' ? new Error(err) : err;
+            imageSourceCache[cacheKey] = image || error || false;
+
+            if (!error && image) {
+              resolve({
+                uri: image,
+                scale: scale
+              });
+            } else {
+              reject(error);
+            }
+          });
+        }
+      });
+    }
+
+    function loadFont() {
+      var file = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : fontFile;
+
+      if (_reactNative.Platform.OS === 'ios') {
+        (0, _ensureNativeModuleAvailable.default)();
+
+        if (!file) {
+          return Promise.reject(new Error('Unable to load font, because no file was specified. '));
+        }
+
+        return NativeIconAPI.loadFontWithFileName.apply(NativeIconAPI, (0, _toConsumableArray2.default)(file.split('.')));
+      }
+
+      return Promise.resolve();
+    }
+
+    function hasIcon(name) {
+      return Object.prototype.hasOwnProperty.call(glyphMap, name);
+    }
+
+    function getRawGlyphMap() {
+      return glyphMap;
+    }
+
+    function getFontFamily() {
+      return fontReference;
+    }
+
+    Icon.Button = (0, _iconButton.default)(Icon);
+    Icon.TabBarItem = (0, _tabBarItemIos.default)(IconNamePropType, getImageSource);
+    Icon.TabBarItemIOS = Icon.TabBarItem;
+    Icon.ToolbarAndroid = (0, _toolbarAndroid.default)(IconNamePropType, getImageSource);
+    Icon.getImageSource = getImageSource;
+    Icon.loadFont = loadFont;
+    Icon.hasIcon = hasIcon;
+    Icon.getRawGlyphMap = getRawGlyphMap;
+    Icon.getFontFamily = getFontFamily;
+    return Icon;
+  }
+},684,[1,545,15,8,6,19,20,35,38,41,53,184,70,686,685,694,692,687],"node_modules/react-native-vector-icons/lib/create-icon-set.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = ensureNativeModuleAvailable;
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[0], "./react-native");
+
+  var NativeIconAPI = _reactNative.NativeModules.RNVectorIconsManager || _reactNative.NativeModules.RNVectorIconsModule;
+
+  function ensureNativeModuleAvailable() {
+    if (!NativeIconAPI) {
+      if (_reactNative.Platform.OS === 'android') {
+        throw new Error('RNVectorIconsModule not available, did you properly integrate the module? Try running `react-native link react-native-vector-icons` and recompiling.');
+      }
+
+      throw new Error('RNVectorIconsManager not available, did you add the library to your project and link with libRNVectorIcons.a? Try running `react-native link react-native-vector-icons` and recompiling.');
+    }
+  }
+},685,[686],"node_modules/react-native-vector-icons/lib/ensure-native-module-available.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[0], "react-native");
+
+  Object.keys(_reactNative).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _reactNative[key];
+      }
+    });
+  });
+},686,[2],"node_modules/react-native-vector-icons/lib/react-native.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createToolbarAndroidComponent;
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/extends"));
+
+  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/objectSpread"));
+
+  var _regenerator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/regenerator"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[10], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./../../react-transform-hmr/lib/index.js"));
+
+  var _isEqual = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "lodash/isEqual"));
+
+  var _pick = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "lodash/pick"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[15], "./react-native");
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/toolbar-android.js";
+  var _components = {
+    IconToolbarAndroid: {
+      displayName: "IconToolbarAndroid",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/toolbar-android.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var ICON_PROP_NAMES = ['iconSize', 'iconColor', 'titleColor'];
+  var LOGO_ICON_PROP_NAMES = ICON_PROP_NAMES.concat(['logoName']);
+  var NAV_ICON_PROP_NAMES = ICON_PROP_NAMES.concat(['navIconName']);
+  var OVERFLOW_ICON_PROP_NAMES = ICON_PROP_NAMES.concat(['overflowIconName']);
+  var ACTIONS_PROP_NAMES = ICON_PROP_NAMES.concat(['actions']);
+
+  var arePropsEqual = function arePropsEqual(keys) {
+    return function (prevProps, nextProps) {
+      return (0, _isEqual.default)((0, _pick.default)(prevProps, keys), (0, _pick.default)(nextProps, keys));
+    };
+  };
+
+  var areLogoIconPropsEqual = arePropsEqual(LOGO_ICON_PROP_NAMES);
+  var areNavIconPropsEqual = arePropsEqual(NAV_ICON_PROP_NAMES);
+  var areOverflowIconPropsEqual = arePropsEqual(OVERFLOW_ICON_PROP_NAMES);
+  var areActionPropsEqual = arePropsEqual(ACTIONS_PROP_NAMES);
+
+  function createToolbarAndroidComponent(IconNamePropType, getImageSource) {
+    var _class, _temp;
+
+    return _wrapComponent("IconToolbarAndroid")((_temp = _class = function (_PureComponent) {
+      (0, _inherits2.default)(IconToolbarAndroid, _PureComponent);
+
+      function IconToolbarAndroid() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        (0, _classCallCheck2.default)(this, IconToolbarAndroid);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(IconToolbarAndroid)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.state = {
+          logo: undefined,
+          navIcon: undefined,
+          overflowIcon: undefined,
+          actions: undefined
+        };
+        return _this;
+      }
+
+      (0, _createClass2.default)(IconToolbarAndroid, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          this.updateLogoIconSource();
+          this.updateNavIconSource();
+          this.updateOverflowIconSource();
+          this.updateActionIconSources();
+        }
+      }, {
+        key: "componentDidUpdate",
+        value: function componentDidUpdate(prevProps) {
+          if (!areLogoIconPropsEqual(prevProps, this.props)) {
+            this.updateLogoIconSource();
+          }
+
+          if (!areNavIconPropsEqual(prevProps, this.props)) {
+            this.updateNavIconSource();
+          }
+
+          if (!areOverflowIconPropsEqual(prevProps, this.props)) {
+            this.updateOverflowIconSource();
+          }
+
+          if (!areActionPropsEqual(prevProps, this.props)) {
+            this.updateActionIconSources();
+          }
+        }
+      }, {
+        key: "updateLogoIconSource",
+        value: function updateLogoIconSource() {
+          var _this$props, logoName, iconSize, iconColor, titleColor, logo;
+
+          return _regenerator.default.async(function updateLogoIconSource$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _this$props = this.props, logoName = _this$props.logoName, iconSize = _this$props.iconSize, iconColor = _this$props.iconColor, titleColor = _this$props.titleColor;
+
+                  if (!logoName) {
+                    _context.next = 8;
+                    break;
+                  }
+
+                  _context.next = 4;
+                  return _regenerator.default.awrap(getImageSource(logoName, iconSize, iconColor || titleColor));
+
+                case 4:
+                  logo = _context.sent;
+                  this.setState({
+                    logo: logo
+                  });
+                  _context.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.logo) {
+                    this.setState({
+                      logo: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateNavIconSource",
+        value: function updateNavIconSource() {
+          var _this$props2, navIconName, iconSize, iconColor, titleColor, navIcon;
+
+          return _regenerator.default.async(function updateNavIconSource$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _this$props2 = this.props, navIconName = _this$props2.navIconName, iconSize = _this$props2.iconSize, iconColor = _this$props2.iconColor, titleColor = _this$props2.titleColor;
+
+                  if (!navIconName) {
+                    _context2.next = 8;
+                    break;
+                  }
+
+                  _context2.next = 4;
+                  return _regenerator.default.awrap(getImageSource(navIconName, iconSize, iconColor || titleColor));
+
+                case 4:
+                  navIcon = _context2.sent;
+                  this.setState({
+                    navIcon: navIcon
+                  });
+                  _context2.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.navIcon) {
+                    this.setState({
+                      navIcon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateOverflowIconSource",
+        value: function updateOverflowIconSource() {
+          var _this$props3, overflowIconName, iconSize, iconColor, titleColor, overflowIcon;
+
+          return _regenerator.default.async(function updateOverflowIconSource$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  _this$props3 = this.props, overflowIconName = _this$props3.overflowIconName, iconSize = _this$props3.iconSize, iconColor = _this$props3.iconColor, titleColor = _this$props3.titleColor;
+
+                  if (!overflowIconName) {
+                    _context3.next = 8;
+                    break;
+                  }
+
+                  _context3.next = 4;
+                  return _regenerator.default.awrap(getImageSource(overflowIconName, iconSize, iconColor || titleColor));
+
+                case 4:
+                  overflowIcon = _context3.sent;
+                  this.setState({
+                    overflowIcon: overflowIcon
+                  });
+                  _context3.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.overflowIcon) {
+                    this.setState({
+                      overflowIcon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateActionIconSources",
+        value: function updateActionIconSources() {
+          var _this$props4, actions, iconSize, iconColor, titleColor, updatedActions;
+
+          return _regenerator.default.async(function updateActionIconSources$(_context4) {
+            while (1) {
+              switch (_context4.prev = _context4.next) {
+                case 0:
+                  _this$props4 = this.props, actions = _this$props4.actions, iconSize = _this$props4.iconSize, iconColor = _this$props4.iconColor, titleColor = _this$props4.titleColor;
+                  _context4.next = 3;
+                  return _regenerator.default.awrap(Promise.all((actions || []).map(function (action) {
+                    if (action.iconName) {
+                      return getImageSource(action.iconName, action.iconSize || iconSize, action.iconColor || iconColor || titleColor).then(function (icon) {
+                        return (0, _objectSpread2.default)({}, action, {
+                          icon: icon
+                        });
+                      });
+                    }
+
+                    return Promise.resolve(action);
+                  })));
+
+                case 3:
+                  updatedActions = _context4.sent;
+                  this.setState({
+                    actions: updatedActions
+                  });
+
+                case 5:
+                case "end":
+                  return _context4.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return _react.default.createElement(_reactNative.ToolbarAndroid, (0, _extends2.default)({}, this.props, this.state, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 142
+            }
+          }));
+        }
+      }]);
+      return IconToolbarAndroid;
+    }(_react.PureComponent), _class.propTypes = {
+      logoName: IconNamePropType,
+      navIconName: IconNamePropType,
+      overflowIconName: IconNamePropType,
+      actions: _propTypes.default.arrayOf(_propTypes.default.shape({
+        title: _propTypes.default.string.isRequired,
+        iconName: IconNamePropType,
+        iconSize: _propTypes.default.number,
+        iconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+        show: _propTypes.default.oneOf(['always', 'ifRoom', 'never']),
+        showWithText: _propTypes.default.bool
+      })),
+      iconSize: _propTypes.default.number,
+      iconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      titleColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
+    }, _class.defaultProps = {
+      iconSize: 24
+    }, _temp));
+  }
+},687,[1,545,8,49,103,19,20,35,38,41,53,184,731,688,70,686],"node_modules/react-native-vector-icons/lib/toolbar-android.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var basePick = _$$_REQUIRE(_dependencyMap[0], "./_basePick"),
+      flatRest = _$$_REQUIRE(_dependencyMap[1], "./_flatRest");
+
+  var pick = flatRest(function (object, paths) {
+    return object == null ? {} : basePick(object, paths);
+  });
+  module.exports = pick;
+},688,[690,689],"node_modules/lodash/pick.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var flatten = _$$_REQUIRE(_dependencyMap[0], "./flatten"),
+      overRest = _$$_REQUIRE(_dependencyMap[1], "./_overRest"),
+      setToString = _$$_REQUIRE(_dependencyMap[2], "./_setToString");
+
+  function flatRest(func) {
+    return setToString(overRest(func, undefined, flatten), func + '');
+  }
+
+  module.exports = flatRest;
+},689,[691,317,319],"node_modules/lodash/_flatRest.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var basePickBy = _$$_REQUIRE(_dependencyMap[0], "./_basePickBy"),
+      hasIn = _$$_REQUIRE(_dependencyMap[1], "./hasIn");
+
+  function basePick(object, paths) {
+    return basePickBy(object, paths, function (value, path) {
+      return hasIn(object, path);
+    });
+  }
+
+  module.exports = basePick;
+},690,[693,297],"node_modules/lodash/_basePick.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseFlatten = _$$_REQUIRE(_dependencyMap[0], "./_baseFlatten");
+
+  function flatten(array) {
+    var length = array == null ? 0 : array.length;
+    return length ? baseFlatten(array, 1) : [];
+  }
+
+  module.exports = flatten;
+},691,[331],"node_modules/lodash/flatten.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createTabBarItemIOSComponent;
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/extends"));
+
+  var _regenerator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/regenerator"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[9], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./../../react-transform-hmr/lib/index.js"));
+
+  var _isEqual = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "lodash/isEqual"));
+
+  var _pick = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "lodash/pick"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[14], "./react-native");
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/tab-bar-item-ios.js";
+  var _components = {
+    TabBarItemIOS: {
+      displayName: "TabBarItemIOS",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/tab-bar-item-ios.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var ICON_PROP_NAMES = ['iconName', 'iconSize', 'iconColor'];
+  var SELECTED_ICON_PROP_NAMES = ICON_PROP_NAMES.concat(['selectedIconName', 'selectedIconColor']);
+
+  var arePropsEqual = function arePropsEqual(keys) {
+    return function (prevProps, nextProps) {
+      return (0, _isEqual.default)((0, _pick.default)(prevProps, keys), (0, _pick.default)(nextProps, keys));
+    };
+  };
+
+  var areIconPropsEqual = arePropsEqual(ICON_PROP_NAMES);
+  var areSelectedIconPropsEqual = arePropsEqual(SELECTED_ICON_PROP_NAMES);
+
+  function createTabBarItemIOSComponent(IconNamePropType, getImageSource) {
+    var _class, _temp;
+
+    return _wrapComponent("TabBarItemIOS")((_temp = _class = function (_PureComponent) {
+      (0, _inherits2.default)(TabBarItemIOS, _PureComponent);
+
+      function TabBarItemIOS() {
+        var _getPrototypeOf2;
+
+        var _this;
+
+        (0, _classCallCheck2.default)(this, TabBarItemIOS);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(TabBarItemIOS)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.state = {
+          icon: undefined,
+          selectedIcon: undefined
+        };
+        return _this;
+      }
+
+      (0, _createClass2.default)(TabBarItemIOS, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+          this.updateIconSource();
+          this.updateSelectedIconSource();
+        }
+      }, {
+        key: "componentDidUpdate",
+        value: function componentDidUpdate(prevProps) {
+          if (!areIconPropsEqual(prevProps, this.props)) {
+            this.updateIconSource();
+          }
+
+          if (!areSelectedIconPropsEqual(prevProps, this.props)) {
+            this.updateSelectedIconSource();
+          }
+        }
+      }, {
+        key: "updateIconSource",
+        value: function updateIconSource() {
+          var _this$props, iconName, iconSize, iconColor, icon;
+
+          return _regenerator.default.async(function updateIconSource$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _this$props = this.props, iconName = _this$props.iconName, iconSize = _this$props.iconSize, iconColor = _this$props.iconColor;
+
+                  if (!iconName) {
+                    _context.next = 8;
+                    break;
+                  }
+
+                  _context.next = 4;
+                  return _regenerator.default.awrap(getImageSource(iconName, iconSize, iconColor));
+
+                case 4:
+                  icon = _context.sent;
+                  this.setState({
+                    icon: icon
+                  });
+                  _context.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.icon) {
+                    this.setState({
+                      icon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "updateSelectedIconSource",
+        value: function updateSelectedIconSource() {
+          var _this$props2, iconName, iconColor, iconSize, selectedIconName, selectedIconColor, selectedIcon;
+
+          return _regenerator.default.async(function updateSelectedIconSource$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _this$props2 = this.props, iconName = _this$props2.iconName, iconColor = _this$props2.iconColor, iconSize = _this$props2.iconSize, selectedIconName = _this$props2.selectedIconName, selectedIconColor = _this$props2.selectedIconColor;
+
+                  if (!(selectedIconName || selectedIconColor)) {
+                    _context2.next = 8;
+                    break;
+                  }
+
+                  _context2.next = 4;
+                  return _regenerator.default.awrap(getImageSource(selectedIconName || iconName, iconSize, selectedIconColor || iconColor));
+
+                case 4:
+                  selectedIcon = _context2.sent;
+                  this.setState({
+                    selectedIcon: selectedIcon
+                  });
+                  _context2.next = 9;
+                  break;
+
+                case 8:
+                  if (this.state.selectedIcon) {
+                    this.setState({
+                      selectedIcon: undefined
+                    });
+                  }
+
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, null, this);
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          return _react.default.createElement(_reactNative.TabBarIOS.Item, (0, _extends2.default)({}, this.state, this.props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 93
+            }
+          }));
+        }
+      }]);
+      return TabBarItemIOS;
+    }(_react.PureComponent), _class.propTypes = {
+      iconName: IconNamePropType.isRequired,
+      selectedIconName: IconNamePropType,
+      iconSize: _propTypes.default.number,
+      iconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      selectedIconColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
+    }, _class.defaultProps = {
+      iconSize: 30
+    }, _temp));
+  }
+},692,[1,545,8,103,19,20,35,38,41,53,184,731,688,70,686],"node_modules/react-native-vector-icons/lib/tab-bar-item-ios.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGet = _$$_REQUIRE(_dependencyMap[0], "./_baseGet"),
+      baseSet = _$$_REQUIRE(_dependencyMap[1], "./_baseSet"),
+      castPath = _$$_REQUIRE(_dependencyMap[2], "./_castPath");
+
+  function basePickBy(object, paths, predicate) {
+    var index = -1,
+        length = paths.length,
+        result = {};
+
+    while (++index < length) {
+      var path = paths[index],
+          value = baseGet(object, path);
+
+      if (predicate(value, path)) {
+        baseSet(result, castPath(path, object), value);
+      }
+    }
+
+    return result;
+  }
+
+  module.exports = basePickBy;
+},693,[286,696,287],"node_modules/lodash/_basePickBy.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = createIconButtonComponent;
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/extends"));
+
+  var _objectWithoutProperties2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/objectWithoutProperties"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[9], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./../../react-transform-hmr/lib/index.js"));
+
+  var _isString = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "lodash/isString"));
+
+  var _omit = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "lodash/omit"));
+
+  var _pick = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "lodash/pick"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[15], "./react-native");
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/icon-button.js";
+  var _components = {
+    IconButton: {
+      displayName: "IconButton",
+      isInFunction: true
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/react-native-vector-icons/lib/icon-button.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      padding: 8
+    },
+    touchable: {
+      overflow: 'hidden'
+    },
+    icon: {
+      marginRight: 10
+    },
+    text: {
+      fontWeight: '600',
+      backgroundColor: 'transparent'
+    }
+  });
+
+  var IOS7_BLUE = '#007AFF';
+  var TEXT_PROP_NAMES = ['ellipsizeMode', 'numberOfLines', 'textBreakStrategy', 'selectable', 'suppressHighlighting', 'allowFontScaling', 'adjustsFontSizeToFit', 'minimumFontScale'];
+  var TOUCHABLE_PROP_NAMES = ['accessible', 'accessibilityLabel', 'accessibilityHint', 'accessibilityComponentType', 'accessibilityRole', 'accessibilityStates', 'accessibilityTraits', 'onFocus', 'onBlur', 'disabled', 'onPress', 'onPressIn', 'onPressOut', 'onLayout', 'onLongPress', 'nativeID', 'testID', 'delayPressIn', 'delayPressOut', 'delayLongPress', 'activeOpacity', 'underlayColor', 'selectionColor', 'onShowUnderlay', 'onHideUnderlay', 'hasTVPreferredFocus', 'tvParallaxProperties'];
+
+  function createIconButtonComponent(Icon) {
+    var _class, _temp;
+
+    return _wrapComponent("IconButton")((_temp = _class = function (_PureComponent) {
+      (0, _inherits2.default)(IconButton, _PureComponent);
+
+      function IconButton() {
+        (0, _classCallCheck2.default)(this, IconButton);
+        return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(IconButton).apply(this, arguments));
+      }
+
+      (0, _createClass2.default)(IconButton, [{
+        key: "render",
+        value: function render() {
+          var _this$props = this.props,
+              style = _this$props.style,
+              iconStyle = _this$props.iconStyle,
+              children = _this$props.children,
+              restProps = (0, _objectWithoutProperties2.default)(_this$props, ["style", "iconStyle", "children"]);
+          var iconProps = (0, _pick.default)(restProps, TEXT_PROP_NAMES, 'style', 'name', 'size', 'color');
+          var touchableProps = (0, _pick.default)(restProps, TOUCHABLE_PROP_NAMES);
+          var props = (0, _omit.default)(restProps, Object.keys(iconProps), Object.keys(touchableProps), 'iconStyle', 'borderRadius', 'backgroundColor');
+          iconProps.style = iconStyle ? [styles.icon, iconStyle] : styles.icon;
+          var colorStyle = (0, _pick.default)(this.props, 'color');
+          var blockStyle = (0, _pick.default)(this.props, 'backgroundColor', 'borderRadius');
+          return _react.default.createElement(_reactNative.TouchableHighlight, (0, _extends2.default)({
+            style: [styles.touchable, blockStyle]
+          }, touchableProps, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 118
+            }
+          }), _react.default.createElement(_reactNative.View, (0, _extends2.default)({
+            style: [styles.container, blockStyle, style]
+          }, props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 122
+            }
+          }), _react.default.createElement(Icon, (0, _extends2.default)({}, iconProps, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 123
+            }
+          })), (0, _isString.default)(children) ? _react.default.createElement(_reactNative.Text, {
+            style: [styles.text, colorStyle],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 125
+            }
+          }, children) : children));
+        }
+      }]);
+      return IconButton;
+    }(_react.PureComponent), _class.propTypes = {
+      backgroundColor: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      borderRadius: _propTypes.default.number,
+      color: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+      size: _propTypes.default.number,
+      iconStyle: _propTypes.default.any,
+      style: _propTypes.default.any,
+      children: _propTypes.default.node
+    }, _class.defaultProps = {
+      backgroundColor: IOS7_BLUE,
+      borderRadius: 5,
+      color: 'white',
+      size: 20
+    }, _temp));
+  }
+},694,[1,545,8,6,19,20,35,38,41,53,184,695,697,688,70,686],"node_modules/react-native-vector-icons/lib/icon-button.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGetTag = _$$_REQUIRE(_dependencyMap[0], "./_baseGetTag"),
+      isArray = _$$_REQUIRE(_dependencyMap[1], "./isArray"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[2], "./isObjectLike");
+
+  var stringTag = '[object String]';
+
+  function isString(value) {
+    return typeof value == 'string' || !isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag;
+  }
+
+  module.exports = isString;
+},695,[211,253,262],"node_modules/lodash/isString.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var assignValue = _$$_REQUIRE(_dependencyMap[0], "./_assignValue"),
+      castPath = _$$_REQUIRE(_dependencyMap[1], "./_castPath"),
+      isIndex = _$$_REQUIRE(_dependencyMap[2], "./_isIndex"),
+      isObject = _$$_REQUIRE(_dependencyMap[3], "./isObject"),
+      toKey = _$$_REQUIRE(_dependencyMap[4], "./_toKey");
+
+  function baseSet(object, path, value, customizer) {
+    if (!isObject(object)) {
+      return object;
+    }
+
+    path = castPath(path, object);
+    var index = -1,
+        length = path.length,
+        lastIndex = length - 1,
+        nested = object;
+
+    while (nested != null && ++index < length) {
+      var key = toKey(path[index]),
+          newValue = value;
+
+      if (index != lastIndex) {
+        var objValue = nested[key];
+        newValue = customizer ? customizer(objValue, key, nested) : undefined;
+
+        if (newValue === undefined) {
+          newValue = isObject(objValue) ? objValue : isIndex(path[index + 1]) ? [] : {};
+        }
+      }
+
+      assignValue(nested, key, newValue);
+      nested = nested[key];
+    }
+
+    return object;
+  }
+
+  module.exports = baseSet;
+},696,[311,287,265,217,296],"node_modules/lodash/_baseSet.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var arrayMap = _$$_REQUIRE(_dependencyMap[0], "./_arrayMap"),
+      baseClone = _$$_REQUIRE(_dependencyMap[1], "./_baseClone"),
+      baseUnset = _$$_REQUIRE(_dependencyMap[2], "./_baseUnset"),
+      castPath = _$$_REQUIRE(_dependencyMap[3], "./_castPath"),
+      copyObject = _$$_REQUIRE(_dependencyMap[4], "./_copyObject"),
+      customOmitClone = _$$_REQUIRE(_dependencyMap[5], "./_customOmitClone"),
+      flatRest = _$$_REQUIRE(_dependencyMap[6], "./_flatRest"),
+      getAllKeysIn = _$$_REQUIRE(_dependencyMap[7], "./_getAllKeysIn");
+
+  var CLONE_DEEP_FLAG = 1,
+      CLONE_FLAT_FLAG = 2,
+      CLONE_SYMBOLS_FLAG = 4;
+  var omit = flatRest(function (object, paths) {
+    var result = {};
+
+    if (object == null) {
+      return result;
+    }
+
+    var isDeep = false;
+    paths = arrayMap(paths, function (path) {
+      path = castPath(path, object);
+      isDeep || (isDeep = path.length > 1);
+      return path;
+    });
+    copyObject(object, getAllKeysIn(object), result);
+
+    if (isDeep) {
+      result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
+    }
+
+    var length = paths.length;
+
+    while (length--) {
+      baseUnset(result, paths[length]);
+    }
+
+    return result;
+  });
+  module.exports = omit;
+},697,[295,710,700,287,314,698,689,699],"node_modules/lodash/omit.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var isPlainObject = _$$_REQUIRE(_dependencyMap[0], "./isPlainObject");
+
+  function customOmitClone(value) {
+    return isPlainObject(value) ? undefined : value;
+  }
+
+  module.exports = customOmitClone;
+},698,[701],"node_modules/lodash/_customOmitClone.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGetAllKeys = _$$_REQUIRE(_dependencyMap[0], "./_baseGetAllKeys"),
+      getSymbolsIn = _$$_REQUIRE(_dependencyMap[1], "./_getSymbolsIn"),
+      keysIn = _$$_REQUIRE(_dependencyMap[2], "./keysIn");
+
+  function getAllKeysIn(object) {
+    return baseGetAllKeys(object, keysIn, getSymbolsIn);
+  }
+
+  module.exports = getAllKeysIn;
+},699,[251,704,705],"node_modules/lodash/_getAllKeysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var castPath = _$$_REQUIRE(_dependencyMap[0], "./_castPath"),
+      last = _$$_REQUIRE(_dependencyMap[1], "./last"),
+      parent = _$$_REQUIRE(_dependencyMap[2], "./_parent"),
+      toKey = _$$_REQUIRE(_dependencyMap[3], "./_toKey");
+
+  function baseUnset(object, path) {
+    path = castPath(path, object);
+    object = parent(object, path);
+    return object == null || delete object[toKey(last(path))];
+  }
+
+  module.exports = baseUnset;
+},700,[287,702,703,296],"node_modules/lodash/_baseUnset.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGetTag = _$$_REQUIRE(_dependencyMap[0], "./_baseGetTag"),
+      getPrototype = _$$_REQUIRE(_dependencyMap[1], "./_getPrototype"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[2], "./isObjectLike");
+
+  var objectTag = '[object Object]';
+  var funcProto = Function.prototype,
+      objectProto = Object.prototype;
+  var funcToString = funcProto.toString;
+  var hasOwnProperty = objectProto.hasOwnProperty;
+  var objectCtorString = funcToString.call(Object);
+
+  function isPlainObject(value) {
+    if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
+      return false;
+    }
+
+    var proto = getPrototype(value);
+
+    if (proto === null) {
+      return true;
+    }
+
+    var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+    return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+  }
+
+  module.exports = isPlainObject;
+},701,[211,706,262],"node_modules/lodash/isPlainObject.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function last(array) {
+    var length = array == null ? 0 : array.length;
+    return length ? array[length - 1] : undefined;
+  }
+
+  module.exports = last;
+},702,[],"node_modules/lodash/last.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseGet = _$$_REQUIRE(_dependencyMap[0], "./_baseGet"),
+      baseSlice = _$$_REQUIRE(_dependencyMap[1], "./_baseSlice");
+
+  function parent(object, path) {
+    return path.length < 2 ? object : baseGet(object, baseSlice(path, 0, -1));
+  }
+
+  module.exports = parent;
+},703,[286,708],"node_modules/lodash/_parent.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var arrayPush = _$$_REQUIRE(_dependencyMap[0], "./_arrayPush"),
+      getPrototype = _$$_REQUIRE(_dependencyMap[1], "./_getPrototype"),
+      getSymbols = _$$_REQUIRE(_dependencyMap[2], "./_getSymbols"),
+      stubArray = _$$_REQUIRE(_dependencyMap[3], "./stubArray");
+
+  var nativeGetSymbols = Object.getOwnPropertySymbols;
+  var getSymbolsIn = !nativeGetSymbols ? stubArray : function (object) {
+    var result = [];
+
+    while (object) {
+      arrayPush(result, getSymbols(object));
+      object = getPrototype(object);
+    }
+
+    return result;
+  };
+  module.exports = getSymbolsIn;
+},704,[252,706,254,256],"node_modules/lodash/_getSymbolsIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var arrayLikeKeys = _$$_REQUIRE(_dependencyMap[0], "./_arrayLikeKeys"),
+      baseKeysIn = _$$_REQUIRE(_dependencyMap[1], "./_baseKeysIn"),
+      isArrayLike = _$$_REQUIRE(_dependencyMap[2], "./isArrayLike");
+
+  function keysIn(object) {
+    return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
+  }
+
+  module.exports = keysIn;
+},705,[258,707,275],"node_modules/lodash/keysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var overArg = _$$_REQUIRE(_dependencyMap[0], "./_overArg");
+
+  var getPrototype = overArg(Object.getPrototypeOf, Object);
+  module.exports = getPrototype;
+},706,[274],"node_modules/lodash/_getPrototype.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var isObject = _$$_REQUIRE(_dependencyMap[0], "./isObject"),
+      isPrototype = _$$_REQUIRE(_dependencyMap[1], "./_isPrototype"),
+      nativeKeysIn = _$$_REQUIRE(_dependencyMap[2], "./_nativeKeysIn");
+
+  var objectProto = Object.prototype;
+  var hasOwnProperty = objectProto.hasOwnProperty;
+
+  function baseKeysIn(object) {
+    if (!isObject(object)) {
+      return nativeKeysIn(object);
+    }
+
+    var isProto = isPrototype(object),
+        result = [];
+
+    for (var key in object) {
+      if (!(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
+        result.push(key);
+      }
+    }
+
+    return result;
+  }
+
+  module.exports = baseKeysIn;
+},707,[217,272,709],"node_modules/lodash/_baseKeysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function baseSlice(array, start, end) {
+    var index = -1,
+        length = array.length;
+
+    if (start < 0) {
+      start = -start > length ? 0 : length + start;
+    }
+
+    end = end > length ? length : end;
+
+    if (end < 0) {
+      end += length;
+    }
+
+    length = start > end ? 0 : end - start >>> 0;
+    start >>>= 0;
+    var result = Array(length);
+
+    while (++index < length) {
+      result[index] = array[index + start];
+    }
+
+    return result;
+  }
+
+  module.exports = baseSlice;
+},708,[],"node_modules/lodash/_baseSlice.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function nativeKeysIn(object) {
+    var result = [];
+
+    if (object != null) {
+      for (var key in Object(object)) {
+        result.push(key);
+      }
+    }
+
+    return result;
+  }
+
+  module.exports = nativeKeysIn;
+},709,[],"node_modules/lodash/_nativeKeysIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var Stack = _$$_REQUIRE(_dependencyMap[0], "./_Stack"),
+      arrayEach = _$$_REQUIRE(_dependencyMap[1], "./_arrayEach"),
+      assignValue = _$$_REQUIRE(_dependencyMap[2], "./_assignValue"),
+      baseAssign = _$$_REQUIRE(_dependencyMap[3], "./_baseAssign"),
+      baseAssignIn = _$$_REQUIRE(_dependencyMap[4], "./_baseAssignIn"),
+      cloneBuffer = _$$_REQUIRE(_dependencyMap[5], "./_cloneBuffer"),
+      copyArray = _$$_REQUIRE(_dependencyMap[6], "./_copyArray"),
+      copySymbols = _$$_REQUIRE(_dependencyMap[7], "./_copySymbols"),
+      copySymbolsIn = _$$_REQUIRE(_dependencyMap[8], "./_copySymbolsIn"),
+      getAllKeys = _$$_REQUIRE(_dependencyMap[9], "./_getAllKeys"),
+      getAllKeysIn = _$$_REQUIRE(_dependencyMap[10], "./_getAllKeysIn"),
+      getTag = _$$_REQUIRE(_dependencyMap[11], "./_getTag"),
+      initCloneArray = _$$_REQUIRE(_dependencyMap[12], "./_initCloneArray"),
+      initCloneByTag = _$$_REQUIRE(_dependencyMap[13], "./_initCloneByTag"),
+      initCloneObject = _$$_REQUIRE(_dependencyMap[14], "./_initCloneObject"),
+      isArray = _$$_REQUIRE(_dependencyMap[15], "./isArray"),
+      isBuffer = _$$_REQUIRE(_dependencyMap[16], "./isBuffer"),
+      isMap = _$$_REQUIRE(_dependencyMap[17], "./isMap"),
+      isObject = _$$_REQUIRE(_dependencyMap[18], "./isObject"),
+      isSet = _$$_REQUIRE(_dependencyMap[19], "./isSet"),
+      keys = _$$_REQUIRE(_dependencyMap[20], "./keys");
+
+  var CLONE_DEEP_FLAG = 1,
+      CLONE_FLAT_FLAG = 2,
+      CLONE_SYMBOLS_FLAG = 4;
+  var argsTag = '[object Arguments]',
+      arrayTag = '[object Array]',
+      boolTag = '[object Boolean]',
+      dateTag = '[object Date]',
+      errorTag = '[object Error]',
+      funcTag = '[object Function]',
+      genTag = '[object GeneratorFunction]',
+      mapTag = '[object Map]',
+      numberTag = '[object Number]',
+      objectTag = '[object Object]',
+      regexpTag = '[object RegExp]',
+      setTag = '[object Set]',
+      stringTag = '[object String]',
+      symbolTag = '[object Symbol]',
+      weakMapTag = '[object WeakMap]';
+  var arrayBufferTag = '[object ArrayBuffer]',
+      dataViewTag = '[object DataView]',
+      float32Tag = '[object Float32Array]',
+      float64Tag = '[object Float64Array]',
+      int8Tag = '[object Int8Array]',
+      int16Tag = '[object Int16Array]',
+      int32Tag = '[object Int32Array]',
+      uint8Tag = '[object Uint8Array]',
+      uint8ClampedTag = '[object Uint8ClampedArray]',
+      uint16Tag = '[object Uint16Array]',
+      uint32Tag = '[object Uint32Array]';
+  var cloneableTags = {};
+  cloneableTags[argsTag] = cloneableTags[arrayTag] = cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] = cloneableTags[boolTag] = cloneableTags[dateTag] = cloneableTags[float32Tag] = cloneableTags[float64Tag] = cloneableTags[int8Tag] = cloneableTags[int16Tag] = cloneableTags[int32Tag] = cloneableTags[mapTag] = cloneableTags[numberTag] = cloneableTags[objectTag] = cloneableTags[regexpTag] = cloneableTags[setTag] = cloneableTags[stringTag] = cloneableTags[symbolTag] = cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] = cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
+  cloneableTags[errorTag] = cloneableTags[funcTag] = cloneableTags[weakMapTag] = false;
+
+  function baseClone(value, bitmask, customizer, key, object, stack) {
+    var result,
+        isDeep = bitmask & CLONE_DEEP_FLAG,
+        isFlat = bitmask & CLONE_FLAT_FLAG,
+        isFull = bitmask & CLONE_SYMBOLS_FLAG;
+
+    if (customizer) {
+      result = object ? customizer(value, key, object, stack) : customizer(value);
+    }
+
+    if (result !== undefined) {
+      return result;
+    }
+
+    if (!isObject(value)) {
+      return value;
+    }
+
+    var isArr = isArray(value);
+
+    if (isArr) {
+      result = initCloneArray(value);
+
+      if (!isDeep) {
+        return copyArray(value, result);
+      }
+    } else {
+      var tag = getTag(value),
+          isFunc = tag == funcTag || tag == genTag;
+
+      if (isBuffer(value)) {
+        return cloneBuffer(value, isDeep);
+      }
+
+      if (tag == objectTag || tag == argsTag || isFunc && !object) {
+        result = isFlat || isFunc ? {} : initCloneObject(value);
+
+        if (!isDeep) {
+          return isFlat ? copySymbolsIn(value, baseAssignIn(result, value)) : copySymbols(value, baseAssign(result, value));
+        }
+      } else {
+        if (!cloneableTags[tag]) {
+          return object ? value : {};
+        }
+
+        result = initCloneByTag(value, tag, isDeep);
+      }
+    }
+
+    stack || (stack = new Stack());
+    var stacked = stack.get(value);
+
+    if (stacked) {
+      return stacked;
+    }
+
+    stack.set(value, result);
+
+    if (isSet(value)) {
+      value.forEach(function (subValue) {
+        result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+      });
+      return result;
+    }
+
+    if (isMap(value)) {
+      value.forEach(function (subValue, key) {
+        result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
+      });
+      return result;
+    }
+
+    var keysFunc = isFull ? isFlat ? getAllKeysIn : getAllKeys : isFlat ? keysIn : keys;
+    var props = isArr ? undefined : keysFunc(value);
+    arrayEach(props || value, function (subValue, key) {
+      if (props) {
+        key = subValue;
+        subValue = value[key];
+      }
+
+      assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack));
+    });
+    return result;
+  }
+
+  module.exports = baseClone;
+},710,[193,716,311,711,712,714,715,713,719,250,699,276,717,723,721,253,263,718,217,720,257],"node_modules/lodash/_baseClone.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      keys = _$$_REQUIRE(_dependencyMap[1], "./keys");
+
+  function baseAssign(object, source) {
+    return object && copyObject(source, keys(source), object);
+  }
+
+  module.exports = baseAssign;
+},711,[314,257],"node_modules/lodash/_baseAssign.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      keysIn = _$$_REQUIRE(_dependencyMap[1], "./keysIn");
+
+  function baseAssignIn(object, source) {
+    return object && copyObject(source, keysIn(source), object);
+  }
+
+  module.exports = baseAssignIn;
+},712,[314,705],"node_modules/lodash/_baseAssignIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      getSymbols = _$$_REQUIRE(_dependencyMap[1], "./_getSymbols");
+
+  function copySymbols(source, object) {
+    return copyObject(source, getSymbols(source), object);
+  }
+
+  module.exports = copySymbols;
+},713,[314,254],"node_modules/lodash/_copySymbols.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var root = _$$_REQUIRE(_dependencyMap[0], "./_root");
+
+  var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+  var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+  var moduleExports = freeModule && freeModule.exports === freeExports;
+  var Buffer = moduleExports ? root.Buffer : undefined,
+      allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
+
+  function cloneBuffer(buffer, isDeep) {
+    if (isDeep) {
+      return buffer.slice();
+    }
+
+    var length = buffer.length,
+        result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+    buffer.copy(result);
+    return result;
+  }
+
+  module.exports = cloneBuffer;
+},714,[213],"node_modules/lodash/_cloneBuffer.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function copyArray(source, array) {
+    var index = -1,
+        length = source.length;
+    array || (array = Array(length));
+
+    while (++index < length) {
+      array[index] = source[index];
+    }
+
+    return array;
+  }
+
+  module.exports = copyArray;
+},715,[],"node_modules/lodash/_copyArray.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  function arrayEach(array, iteratee) {
+    var index = -1,
+        length = array == null ? 0 : array.length;
+
+    while (++index < length) {
+      if (iteratee(array[index], index, array) === false) {
+        break;
+      }
+    }
+
+    return array;
+  }
+
+  module.exports = arrayEach;
+},716,[],"node_modules/lodash/_arrayEach.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var objectProto = Object.prototype;
+  var hasOwnProperty = objectProto.hasOwnProperty;
+
+  function initCloneArray(array) {
+    var length = array.length,
+        result = new array.constructor(length);
+
+    if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
+      result.index = array.index;
+      result.input = array.input;
+    }
+
+    return result;
+  }
+
+  module.exports = initCloneArray;
+},717,[],"node_modules/lodash/_initCloneArray.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseIsMap = _$$_REQUIRE(_dependencyMap[0], "./_baseIsMap"),
+      baseUnary = _$$_REQUIRE(_dependencyMap[1], "./_baseUnary"),
+      nodeUtil = _$$_REQUIRE(_dependencyMap[2], "./_nodeUtil");
+
+  var nodeIsMap = nodeUtil && nodeUtil.isMap;
+  var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
+  module.exports = isMap;
+},718,[722,269,270],"node_modules/lodash/isMap.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var copyObject = _$$_REQUIRE(_dependencyMap[0], "./_copyObject"),
+      getSymbolsIn = _$$_REQUIRE(_dependencyMap[1], "./_getSymbolsIn");
+
+  function copySymbolsIn(source, object) {
+    return copyObject(source, getSymbolsIn(source), object);
+  }
+
+  module.exports = copySymbolsIn;
+},719,[314,704],"node_modules/lodash/_copySymbolsIn.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseIsSet = _$$_REQUIRE(_dependencyMap[0], "./_baseIsSet"),
+      baseUnary = _$$_REQUIRE(_dependencyMap[1], "./_baseUnary"),
+      nodeUtil = _$$_REQUIRE(_dependencyMap[2], "./_nodeUtil");
+
+  var nodeIsSet = nodeUtil && nodeUtil.isSet;
+  var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
+  module.exports = isSet;
+},720,[724,269,270],"node_modules/lodash/isSet.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseCreate = _$$_REQUIRE(_dependencyMap[0], "./_baseCreate"),
+      getPrototype = _$$_REQUIRE(_dependencyMap[1], "./_getPrototype"),
+      isPrototype = _$$_REQUIRE(_dependencyMap[2], "./_isPrototype");
+
+  function initCloneObject(object) {
+    return typeof object.constructor == 'function' && !isPrototype(object) ? baseCreate(getPrototype(object)) : {};
+  }
+
+  module.exports = initCloneObject;
+},721,[726,706,272],"node_modules/lodash/_initCloneObject.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var getTag = _$$_REQUIRE(_dependencyMap[0], "./_getTag"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[1], "./isObjectLike");
+
+  var mapTag = '[object Map]';
+
+  function baseIsMap(value) {
+    return isObjectLike(value) && getTag(value) == mapTag;
+  }
+
+  module.exports = baseIsMap;
+},722,[276,262],"node_modules/lodash/_baseIsMap.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var cloneArrayBuffer = _$$_REQUIRE(_dependencyMap[0], "./_cloneArrayBuffer"),
+      cloneDataView = _$$_REQUIRE(_dependencyMap[1], "./_cloneDataView"),
+      cloneRegExp = _$$_REQUIRE(_dependencyMap[2], "./_cloneRegExp"),
+      cloneSymbol = _$$_REQUIRE(_dependencyMap[3], "./_cloneSymbol"),
+      cloneTypedArray = _$$_REQUIRE(_dependencyMap[4], "./_cloneTypedArray");
+
+  var boolTag = '[object Boolean]',
+      dateTag = '[object Date]',
+      mapTag = '[object Map]',
+      numberTag = '[object Number]',
+      regexpTag = '[object RegExp]',
+      setTag = '[object Set]',
+      stringTag = '[object String]',
+      symbolTag = '[object Symbol]';
+  var arrayBufferTag = '[object ArrayBuffer]',
+      dataViewTag = '[object DataView]',
+      float32Tag = '[object Float32Array]',
+      float64Tag = '[object Float64Array]',
+      int8Tag = '[object Int8Array]',
+      int16Tag = '[object Int16Array]',
+      int32Tag = '[object Int32Array]',
+      uint8Tag = '[object Uint8Array]',
+      uint8ClampedTag = '[object Uint8ClampedArray]',
+      uint16Tag = '[object Uint16Array]',
+      uint32Tag = '[object Uint32Array]';
+
+  function initCloneByTag(object, tag, isDeep) {
+    var Ctor = object.constructor;
+
+    switch (tag) {
+      case arrayBufferTag:
+        return cloneArrayBuffer(object);
+
+      case boolTag:
+      case dateTag:
+        return new Ctor(+object);
+
+      case dataViewTag:
+        return cloneDataView(object, isDeep);
+
+      case float32Tag:
+      case float64Tag:
+      case int8Tag:
+      case int16Tag:
+      case int32Tag:
+      case uint8Tag:
+      case uint8ClampedTag:
+      case uint16Tag:
+      case uint32Tag:
+        return cloneTypedArray(object, isDeep);
+
+      case mapTag:
+        return new Ctor();
+
+      case numberTag:
+      case stringTag:
+        return new Ctor(object);
+
+      case regexpTag:
+        return cloneRegExp(object);
+
+      case setTag:
+        return new Ctor();
+
+      case symbolTag:
+        return cloneSymbol(object);
+    }
+  }
+
+  module.exports = initCloneByTag;
+},723,[729,725,727,728,730],"node_modules/lodash/_initCloneByTag.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var getTag = _$$_REQUIRE(_dependencyMap[0], "./_getTag"),
+      isObjectLike = _$$_REQUIRE(_dependencyMap[1], "./isObjectLike");
+
+  var setTag = '[object Set]';
+
+  function baseIsSet(value) {
+    return isObjectLike(value) && getTag(value) == setTag;
+  }
+
+  module.exports = baseIsSet;
+},724,[276,262],"node_modules/lodash/_baseIsSet.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var cloneArrayBuffer = _$$_REQUIRE(_dependencyMap[0], "./_cloneArrayBuffer");
+
+  function cloneDataView(dataView, isDeep) {
+    var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer;
+    return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+  }
+
+  module.exports = cloneDataView;
+},725,[729],"node_modules/lodash/_cloneDataView.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var isObject = _$$_REQUIRE(_dependencyMap[0], "./isObject");
+
+  var objectCreate = Object.create;
+
+  var baseCreate = function () {
+    function object() {}
+
+    return function (proto) {
+      if (!isObject(proto)) {
+        return {};
+      }
+
+      if (objectCreate) {
+        return objectCreate(proto);
+      }
+
+      object.prototype = proto;
+      var result = new object();
+      object.prototype = undefined;
+      return result;
+    };
+  }();
+
+  module.exports = baseCreate;
+},726,[217],"node_modules/lodash/_baseCreate.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var reFlags = /\w*$/;
+
+  function cloneRegExp(regexp) {
+    var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
+    result.lastIndex = regexp.lastIndex;
+    return result;
+  }
+
+  module.exports = cloneRegExp;
+},727,[],"node_modules/lodash/_cloneRegExp.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var Symbol = _$$_REQUIRE(_dependencyMap[0], "./_Symbol");
+
+  var symbolProto = Symbol ? typeof Symbol === "function" ? Symbol.prototype : "@@prototype" : undefined,
+      symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
+
+  function cloneSymbol(symbol) {
+    return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
+  }
+
+  module.exports = cloneSymbol;
+},728,[212],"node_modules/lodash/_cloneSymbol.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var Uint8Array = _$$_REQUIRE(_dependencyMap[0], "./_Uint8Array");
+
+  function cloneArrayBuffer(arrayBuffer) {
+    var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
+    new Uint8Array(result).set(new Uint8Array(arrayBuffer));
+    return result;
+  }
+
+  module.exports = cloneArrayBuffer;
+},729,[246],"node_modules/lodash/_cloneArrayBuffer.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var cloneArrayBuffer = _$$_REQUIRE(_dependencyMap[0], "./_cloneArrayBuffer");
+
+  function cloneTypedArray(typedArray, isDeep) {
+    var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
+    return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+  }
+
+  module.exports = cloneTypedArray;
+},730,[729],"node_modules/lodash/_cloneTypedArray.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var baseIsEqual = _$$_REQUIRE(_dependencyMap[0], "./_baseIsEqual");
+
+  function isEqual(value, other) {
+    return baseIsEqual(value, other);
+  }
+
+  module.exports = isEqual;
+},731,[237],"node_modules/lodash/isEqual.js");
 __r(90);
 __r(0);
 //# sourceMappingURL=index.map
