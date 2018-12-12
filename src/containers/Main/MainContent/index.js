@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Text, Image, ScrollView, FlatList, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Image, ImageBackground, ScrollView, FlatList, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { fetchGet } from '../../../utils/http';
 import { APIS, APP } from '../../../constants/API';
@@ -76,7 +76,7 @@ class MainContent extends React.Component {
   }
   _renderDotIndicator() {
     const { Focus } = this.state;
-    return <PagerDotIndicator pageCount={Focus.length} />;
+    return <PagerDotIndicator style={{justifyContent: 'flex-end'}} pageCount={Focus.length} />;
   }
 
   /** 渲染Item */
@@ -94,9 +94,11 @@ class MainContent extends React.Component {
               (
                 Focus.map((focusItem) => {
                   return (
-                    <Image style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
-                      {/* <Text>Test</Text> */}
-                    </Image>
+                    <ImageBackground style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
+                      <View style={styles.pageTextView}>
+                        <Text style={styles.pageText}>{focusItem.Title}</Text>
+                      </View>
+                    </ImageBackground>
                   )
                 })
               )
@@ -201,12 +203,25 @@ const styles = StyleSheet.create({
   },
 
   pageContent: {
-    height: 240,
+    height: 200,
     width: wWidth
   },
   pageImage: {
-    height: 240,
-    width: wWidth
+    width: '100%', 
+    height: '100%',
+    justifyContent: 'flex-end'
+  },
+  pageTextView: {
+    backgroundColor: '#505050',
+    width: wWidth,
+    height: 30,
+    justifyContent: 'center'
+  },
+  pageText: {
+    color: 'white',
+    fontSize: 16,
+    paddingLeft: 10,
+    marginRight: 100
   },
 
   contentList: {

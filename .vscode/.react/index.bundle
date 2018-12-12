@@ -1371,7 +1371,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   _reactNative.AppRegistry.registerComponent(_app.name, function () {
     return _App.default;
   });
-},0,[1,2,544,728],"index.js");
+},0,[1,2,544,735],"index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -86334,7 +86334,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var AppContainer = (0, _reactNavigation.createAppContainer)(TabNavigator);
   var _default2 = AppContainer;
   exports.default = _default2;
-},546,[1,19,20,35,38,41,53,184,2,547,671,721,727],"src/containers/AppContainer.js");
+},546,[1,19,20,35,38,41,53,184,2,547,671,721,734],"src/containers/AppContainer.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   module.exports = {
     get createAppContainer() {
@@ -108017,7 +108017,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   });
   var _default = MainNavigator;
   exports.default = _default;
-},721,[1,53,2,547,722,725,726],"src/containers/Main/index.js");
+},721,[1,53,2,547,722,732,733],"src/containers/Main/index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
 
@@ -108122,9 +108122,17 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
               fileName: _jsxFileName,
               lineNumber: 89
             }
-          }, Focus.map(function (focusItem) {
-            console.log('focusItem', focusItem.ImageUrl);
-            return _react.default.createElement(_reactNative.Image, {
+          }, !isFocus ? _react.default.createElement(_reactNative.Image, {
+            style: styles.pageImage,
+            source: {
+              uri: _Resource.Resource.defaultImage
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 93
+            }
+          }) : Focus.map(function (focusItem) {
+            return _react.default.createElement(_reactNative.ImageBackground, {
               style: styles.pageImage,
               source: {
                 uri: focusItem.ImgUrl
@@ -108133,7 +108141,19 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
                 fileName: _jsxFileName,
                 lineNumber: 97
               }
-            });
+            }, _react.default.createElement(_reactNative.View, {
+              style: styles.pageTextView,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 98
+              }
+            }, _react.default.createElement(_reactNative.Text, {
+              style: styles.pageText,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 99
+              }
+            }, focusItem.Title)));
           }));
         } else {
           return _this._renderItemContent(item, index);
@@ -108145,7 +108165,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: styles.itemContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 114
           }
         }, _react.default.createElement(_reactNative.Image, {
           style: styles.image,
@@ -108154,38 +108174,38 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 115
           }
         }), _react.default.createElement(_reactNative.View, {
           style: styles.textContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 116
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.titleText,
           numberOfLines: 2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 117
           }
         }, item.Title), _react.default.createElement(_reactNative.View, {
           style: styles.bottomContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 118
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.timeText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 119
           }
         }, item.IssueTime), !!item.Tags && _react.default.createElement(_reactNative.Text, {
           style: styles.tipText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 121
           }
         }, item.Tags))));
       };
@@ -108223,6 +108243,9 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       value: function _renderDotIndicator() {
         var Focus = this.state.Focus;
         return _react.default.createElement(_rnViewpager.PagerDotIndicator, {
+          style: {
+            justifyContent: 'flex-end'
+          },
           pageCount: Focus.length,
           __source: {
             fileName: _jsxFileName,
@@ -108242,7 +108265,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: styles.container,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148
+            lineNumber: 147
           }
         }, _react.default.createElement(_reactNative.ScrollView, {
           style: styles.tabScroll,
@@ -108250,7 +108273,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           showsHorizontalScrollIndicator: false,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149
+            lineNumber: 148
           }
         }, tabsArray.map(function (item) {
           return _react.default.createElement(_reactNative.Text, {
@@ -108258,7 +108281,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             style: styles.tabText,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 154
+              lineNumber: 153
             }
           }, item);
         })), _react.default.createElement(_reactNative.FlatList, {
@@ -108278,7 +108301,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
               }],
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 165
+                lineNumber: 164
               }
             });
           },
@@ -108297,7 +108320,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           removeClippedSubviews: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 158
+            lineNumber: 157
           }
         }));
       }
@@ -108374,13 +108397,25 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       color: '#2a5caa'
     },
     pageContent: {
-      height: 240,
-      width: wWidth,
-      backgroundColor: 'gray'
+      height: 200,
+      width: wWidth
     },
     pageImage: {
-      height: 240,
-      width: wWidth
+      width: '100%',
+      height: '100%',
+      justifyContent: 'flex-end'
+    },
+    pageTextView: {
+      backgroundColor: '#505050',
+      width: wWidth,
+      height: 30,
+      justifyContent: 'center'
+    },
+    pageText: {
+      color: 'white',
+      fontSize: 16,
+      paddingLeft: 10,
+      marginRight: 100
     },
     contentList: {
       width: wWidth
@@ -108469,7 +108504,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     Tags: '掌上宣讲所',
     ImgUrl: 'http://f.hiphotos.baidu.com/zhidao/pic/item/c75c10385343fbf2d77d69d5b47eca8064388ff7.jpg'
   }];
-},722,[1,49,19,20,35,38,41,53,184,2,671,723,724,738,732],"src/containers/Main/MainContent/index.js");
+},722,[1,49,19,20,35,38,41,53,184,2,671,723,724,725,726],"src/containers/Main/MainContent/index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -108679,251 +108714,15 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   exports.Token = Token;
 },724,[],"src/constants/API.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
-
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = void 0;
-
-  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/classCallCheck"));
-
-  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/createClass"));
-
-  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/possibleConstructorReturn"));
-
-  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/getPrototypeOf"));
-
-  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/inherits"));
-
-  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "react"));
-
-  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "./../../../node_modules/react-transform-hmr/lib/index.js"));
-
-  var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
-
-  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Account.js";
-  var _components = {
-    Account: {
-      displayName: "Account"
-    }
+  exports.Resource = void 0;
+  var Resource = {
+    defaultImage: 'https://increasify.com.au/wp-content/uploads/2016/08/default-image.png'
   };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Account.js",
-    components: _components,
-    locals: [module],
-    imports: [_react.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var Account = function (_React$Component) {
-    (0, _inherits2.default)(Account, _React$Component);
-
-    function Account() {
-      (0, _classCallCheck2.default)(this, Account);
-      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Account).apply(this, arguments));
-    }
-
-    (0, _createClass2.default)(Account, [{
-      key: "render",
-      value: function render() {
-        return _react.default.createElement(_reactNative.View, {
-          style: {
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          }
-        }, "Account"));
-      }
-    }]);
-    return Account;
-  }(_react.default.Component);
-
-  Account = _wrapComponent("Account")(Account);
-  var _default2 = Account;
-  exports.default = _default2;
-},725,[1,19,20,35,38,41,53,184,2],"src/containers/Main/Account.js");
-__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-
-  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/classCallCheck"));
-
-  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/createClass"));
-
-  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/possibleConstructorReturn"));
-
-  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/getPrototypeOf"));
-
-  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/inherits"));
-
-  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "react"));
-
-  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "./../../../node_modules/react-transform-hmr/lib/index.js"));
-
-  var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
-
-  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Search.js";
-  var _components = {
-    Search: {
-      displayName: "Search"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Search.js",
-    components: _components,
-    locals: [module],
-    imports: [_react.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var Search = function (_React$Component) {
-    (0, _inherits2.default)(Search, _React$Component);
-
-    function Search() {
-      (0, _classCallCheck2.default)(this, Search);
-      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Search).apply(this, arguments));
-    }
-
-    (0, _createClass2.default)(Search, [{
-      key: "render",
-      value: function render() {
-        return _react.default.createElement(_reactNative.View, {
-          style: {
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          }
-        }, "Search"));
-      }
-    }]);
-    return Search;
-  }(_react.default.Component);
-
-  Search = _wrapComponent("Search")(Search);
-  var _default2 = Search;
-  exports.default = _default2;
-},726,[1,19,20,35,38,41,53,184,2],"src/containers/Main/Search.js");
-__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-
-  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/classCallCheck"));
-
-  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/createClass"));
-
-  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/possibleConstructorReturn"));
-
-  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/getPrototypeOf"));
-
-  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/inherits"));
-
-  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "react"));
-
-  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "./../../../node_modules/react-transform-hmr/lib/index.js"));
-
-  var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
-
-  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Activity/index.js";
-  var _components = {
-    Activity: {
-      displayName: "Activity"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Activity/index.js",
-    components: _components,
-    locals: [module],
-    imports: [_react.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var Activity = function (_React$Component) {
-    (0, _inherits2.default)(Activity, _React$Component);
-
-    function Activity() {
-      (0, _classCallCheck2.default)(this, Activity);
-      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Activity).apply(this, arguments));
-    }
-
-    (0, _createClass2.default)(Activity, [{
-      key: "render",
-      value: function render() {
-        return _react.default.createElement(_reactNative.View, {
-          style: {
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center"
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 7
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          }
-        }, "Activity"));
-      }
-    }]);
-    return Activity;
-  }(_react.default.Component);
-
-  Activity = _wrapComponent("Activity")(Activity);
-  var _default2 = Activity;
-  exports.default = _default2;
-},727,[1,19,20,35,38,41,53,184,2],"src/containers/Activity/index.js");
-__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
-  module.exports = {
-  "name": "ProjectR",
-  "displayName": "ProjectR"
-};
-},728,[],"app.json");
+  exports.Resource = Resource;
+},725,[],"src/constants/Resource.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -108972,572 +108771,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _PagerTitleIndicator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "./viewpager/indicator/PagerTitleIndicator"));
 
   var _PagerTabIndicator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "./viewpager/indicator/PagerTabIndicator"));
-},732,[1,736,735,734,737,733],"node_modules/rn-viewpager/index.js");
-__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  'use strict';
-
-  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
-
-  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-
-  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/objectSpread"));
-
-  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/classCallCheck"));
-
-  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/createClass"));
-
-  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/possibleConstructorReturn"));
-
-  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/getPrototypeOf"));
-
-  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/inherits"));
-
-  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[8], "react"));
-
-  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "./../../../react-transform-hmr/lib/index.js"));
-
-  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "prop-types"));
-
-  var _reactNative = _$$_REQUIRE(_dependencyMap[11], "react-native");
-
-  var _IndicatorViewPager = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "../IndicatorViewPager"));
-
-  var _class,
-      _temp,
-      _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerTabIndicator.js";
-
-  var _components = {
-    PagerTabIndicator: {
-      displayName: "PagerTabIndicator"
-    }
-  };
-
-  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerTabIndicator.js",
-    components: _components,
-    locals: [module],
-    imports: [_react.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _reactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var PagerTabIndicator = _wrapComponent("PagerTabIndicator")((_temp = _class = function (_Component) {
-    (0, _inherits2.default)(PagerTabIndicator, _Component);
-
-    function PagerTabIndicator() {
-      var _getPrototypeOf2;
-
-      var _this;
-
-      (0, _classCallCheck2.default)(this, PagerTabIndicator);
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(PagerTabIndicator)).call.apply(_getPrototypeOf2, [this].concat(args)));
-      _this.state = {
-        selectedIndex: _this.props.initialPage
-      };
-      return _this;
-    }
-
-    (0, _createClass2.default)(PagerTabIndicator, [{
-      key: "render",
-      value: function render() {
-        var _this2 = this;
-
-        var _this$props = this.props,
-            tabs = _this$props.tabs,
-            pager = _this$props.pager,
-            style = _this$props.style,
-            itemStyle = _this$props.itemStyle,
-            selectedItemStyle = _this$props.selectedItemStyle,
-            iconStyle = _this$props.iconStyle,
-            selectedIconStyle = _this$props.selectedIconStyle,
-            textStyle = _this$props.textStyle,
-            selectedTextStyle = _this$props.selectedTextStyle,
-            changePageWithAnimation = _this$props.changePageWithAnimation;
-        if (!tabs || tabs.length === 0) return null;
-        var tabsView = tabs.map(function (tab, index) {
-          var isSelected = _this2.state.selectedIndex === index;
-          return _react.default.createElement(_reactNative.TouchableOpacity, {
-            style: [styles.itemContainer, isSelected ? selectedItemStyle : itemStyle],
-            activeOpacity: 0.6,
-            key: index,
-            onPress: function onPress() {
-              if (!isSelected) {
-                if (_this2.props.changePageWithAnimation) pager.setPage(index);else pager.setPageWithoutAnimation(index);
-              }
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 49
-            }
-          }, _react.default.createElement(_reactNative.Image, {
-            style: [styles.image, isSelected ? selectedIconStyle : iconStyle],
-            source: isSelected ? tab.selectedIconSource : tab.iconSource,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 61
-            }
-          }), _react.default.createElement(_reactNative.Text, {
-            style: [isSelected ? styles.textSelected : styles.text, isSelected ? selectedTextStyle : textStyle],
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 65
-            }
-          }, tab.text));
-        });
-        return _react.default.createElement(_reactNative.View, {
-          style: [styles.container, style],
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 74
-          }
-        }, tabsView);
-      }
-    }, {
-      key: "onPageSelected",
-      value: function onPageSelected(e) {
-        this.setState({
-          selectedIndex: e.position
-        });
-      }
-    }]);
-    return PagerTabIndicator;
-  }(_react.Component), _class.propTypes = (0, _objectSpread2.default)({}, _reactNative.ViewPropTypes, {
-    initialPage: _propTypes.default.number,
-    pager: _propTypes.default.instanceOf(_IndicatorViewPager.default),
-    tabs: _propTypes.default.arrayOf(_propTypes.default.shape({
-      text: _propTypes.default.string,
-      iconSource: _reactNative.Image.propTypes.source,
-      selectedIconSource: _reactNative.Image.propTypes.source
-    })).isRequired,
-    itemStyle: _reactNative.ViewPropTypes.style,
-    selectedItemStyle: _reactNative.ViewPropTypes.style,
-    iconStyle: _reactNative.Image.propTypes.style,
-    selectedIconStyle: _reactNative.Image.propTypes.style,
-    textStyle: _reactNative.Text.propTypes.style,
-    selectedTextStyle: _reactNative.Text.propTypes.style,
-    changePageWithAnimation: _propTypes.default.bool
-  }), _class.defaultProps = {
-    tabs: [],
-    changePageWithAnimation: true
-  }, _temp));
-
-  var _default2 = PagerTabIndicator;
-  exports.default = _default2;
-
-  var styles = _reactNative.StyleSheet.create({
-    container: {
-      flexDirection: 'row',
-      paddingTop: 8,
-      paddingBottom: 4,
-      borderTopWidth: 0.5,
-      borderTopColor: '#E0E0E0',
-      backgroundColor: '#F7F7F7'
-    },
-    itemContainer: {
-      alignItems: 'center',
-      flex: 1
-    },
-    image: {},
-    text: {
-      marginTop: 4,
-      fontSize: 11,
-      color: '#999999'
-    },
-    textSelected: {
-      marginTop: 4,
-      fontSize: 11,
-      color: '#3584F6'
-    }
-  });
-},733,[1,545,49,19,20,35,38,41,53,184,70,2,735],"node_modules/rn-viewpager/viewpager/indicator/PagerTabIndicator.js");
-__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  'use strict';
-
-  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
-
-  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-
-  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/objectSpread"));
-
-  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/extends"));
-
-  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
-
-  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
-
-  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
-
-  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
-
-  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
-
-  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[9], "react"));
-
-  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./../../../react-transform-hmr/lib/index.js"));
-
-  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "prop-types"));
-
-  var _reactNative = _$$_REQUIRE(_dependencyMap[12], "react-native");
-
-  var _IndicatorViewPager = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "../IndicatorViewPager"));
-
-  var _class,
-      _temp,
-      _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerDotIndicator.js";
-
-  var _components = {
-    PagerDotIndicator: {
-      displayName: "PagerDotIndicator"
-    }
-  };
-
-  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerDotIndicator.js",
-    components: _components,
-    locals: [module],
-    imports: [_react.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _reactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var DEFAULT_DOT_RADIUS = 6;
-
-  var PagerDotIndicator = _wrapComponent("PagerDotIndicator")((_temp = _class = function (_Component) {
-    (0, _inherits2.default)(PagerDotIndicator, _Component);
-
-    function PagerDotIndicator() {
-      var _getPrototypeOf2;
-
-      var _this;
-
-      (0, _classCallCheck2.default)(this, PagerDotIndicator);
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(PagerDotIndicator)).call.apply(_getPrototypeOf2, [this].concat(args)));
-      _this.state = {
-        selectedIndex: _this.props.initialPage
-      };
-      return _this;
-    }
-
-    (0, _createClass2.default)(PagerDotIndicator, [{
-      key: "shouldComponentUpdate",
-      value: function shouldComponentUpdate(nextProps, nextState) {
-        return this.state.selectedIndex != nextState.selectedIndex || this.props.pageCount != nextProps.pageCount || this.props.dotStyle != nextProps.dotStyle || this.props.selectedDotStyle != nextProps.selectedDotStyle || this.props.style != nextProps.style;
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        var _this$props = this.props,
-            pageCount = _this$props.pageCount,
-            dotStyle = _this$props.dotStyle,
-            selectedDotStyle = _this$props.selectedDotStyle;
-        if (pageCount <= 0) return null;
-        if (this.props.hideSingle && pageCount == 1) return null;
-        var dotsView = [];
-
-        for (var i = 0; i < pageCount; i++) {
-          var isSelect = i === this.state.selectedIndex;
-          dotsView.push(_react.default.createElement(_reactNative.View, {
-            style: [styles.dot, isSelect ? styles.selectDot : null, isSelect ? selectedDotStyle : dotStyle],
-            key: i,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 49
-            }
-          }));
-        }
-
-        return _react.default.createElement(_reactNative.View, (0, _extends2.default)({}, this.props, {
-          style: [styles.container, this.props.style],
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 56
-          }
-        }), dotsView);
-      }
-    }, {
-      key: "onPageSelected",
-      value: function onPageSelected(e) {
-        this.setState({
-          selectedIndex: e.position
-        });
-      }
-    }]);
-    return PagerDotIndicator;
-  }(_react.Component), _class.propTypes = (0, _objectSpread2.default)({}, _reactNative.ViewPropTypes, {
-    pageCount: _propTypes.default.number.isRequired,
-    initialPage: _propTypes.default.number,
-    pager: _propTypes.default.instanceOf(_IndicatorViewPager.default),
-    dotStyle: _reactNative.ViewPropTypes.style,
-    selectedDotStyle: _reactNative.ViewPropTypes.style,
-    hideSingle: _propTypes.default.bool
-  }), _class.defaultProps = {
-    pageCount: 0,
-    initialPage: 0,
-    hideSingle: false
-  }, _temp));
-
-  var _default2 = PagerDotIndicator;
-  exports.default = _default2;
-
-  var styles = _reactNative.StyleSheet.create({
-    container: {
-      position: 'absolute',
-      bottom: 10,
-      left: 0,
-      right: 0,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    dot: {
-      width: DEFAULT_DOT_RADIUS,
-      height: DEFAULT_DOT_RADIUS,
-      borderRadius: DEFAULT_DOT_RADIUS >> 1,
-      backgroundColor: '#BBBBBB',
-      margin: DEFAULT_DOT_RADIUS >> 1
-    },
-    selectDot: {
-      backgroundColor: 'white'
-    }
-  });
-},734,[1,545,49,8,19,20,35,38,41,53,184,70,2,735],"node_modules/rn-viewpager/viewpager/indicator/PagerDotIndicator.js");
-__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
-  'use strict';
-
-  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
-
-  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
-
-  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/objectSpread"));
-
-  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/extends"));
-
-  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
-
-  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
-
-  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
-
-  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
-
-  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
-
-  var _assertThisInitialized2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "@babel/runtime/helpers/assertThisInitialized"));
-
-  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[10], "react"));
-
-  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./../../react-transform-hmr/lib/index.js"));
-
-  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "prop-types"));
-
-  var _reactNative = _$$_REQUIRE(_dependencyMap[13], "react-native");
-
-  var _ViewPager = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "./ViewPager"));
-
-  var _class,
-      _temp,
-      _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/IndicatorViewPager.js";
-
-  var _components = {
-    IndicatorViewPager: {
-      displayName: "IndicatorViewPager"
-    }
-  };
-
-  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/IndicatorViewPager.js",
-    components: _components,
-    locals: [module],
-    imports: [_react.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _reactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var VIEWPAGER_REF = 'viewPager';
-  var INDICATOR_REF = 'indicator';
-
-  var IndicatorViewPager = _wrapComponent("IndicatorViewPager")((_temp = _class = function (_Component) {
-    (0, _inherits2.default)(IndicatorViewPager, _Component);
-
-    function IndicatorViewPager(props) {
-      var _this;
-
-      (0, _classCallCheck2.default)(this, IndicatorViewPager);
-      _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(IndicatorViewPager).call(this, props));
-      _this._onPageScroll = _this._onPageScroll.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this._onPageSelected = _this._onPageSelected.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this._goToNextPage = _this._goToNextPage.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this._renderIndicator = _this._renderIndicator.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this.setPage = _this.setPage.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this.setPageWithoutAnimation = _this.setPageWithoutAnimation.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this._startAutoPlay = _this._startAutoPlay.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this._stopAutoPlay = _this._stopAutoPlay.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
-      _this._currentIndex = props.initialPage;
-      _this._childrenCount = _react.default.Children.count(props.children);
-      return _this;
-    }
-
-    (0, _createClass2.default)(IndicatorViewPager, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        if (this.props.autoPlayEnable) this._startAutoPlay();else this._stopAutoPlay();
-      }
-    }, {
-      key: "componentWillUpdate",
-      value: function componentWillUpdate(nextProps, nextState) {
-        this._childrenCount = _react.default.Children.count(nextProps.children);
-
-        if (this.props.autoPlayEnable !== nextProps.autoPlayEnable) {
-          nextProps.autoPlayEnable ? this._startAutoPlay() : this._stopAutoPlay();
-        }
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        return _react.default.createElement(_reactNative.View, {
-          style: [styles.container, this.props.style],
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 60
-          }
-        }, _react.default.createElement(_ViewPager.default, (0, _extends2.default)({}, this.props, {
-          horizontalScroll: this.props.horizontalScroll,
-          ref: VIEWPAGER_REF,
-          style: [styles.pager, this.props.pagerStyle],
-          onPageScroll: this._onPageScroll,
-          onPageSelected: this._onPageSelected,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 61
-          }
-        })), this._renderIndicator());
-      }
-    }, {
-      key: "componentWillUnmount",
-      value: function componentWillUnmount() {
-        this._stopAutoPlay();
-      }
-    }, {
-      key: "_onPageScroll",
-      value: function _onPageScroll(params) {
-        var indicator = this.refs[INDICATOR_REF];
-        indicator && indicator.onPageScroll && indicator.onPageScroll(params);
-        this.props.onPageScroll && this.props.onPageScroll(params);
-      }
-    }, {
-      key: "_onPageSelected",
-      value: function _onPageSelected(params) {
-        var indicator = this.refs[INDICATOR_REF];
-        indicator && indicator.onPageSelected && indicator.onPageSelected(params);
-        this.props.onPageSelected && this.props.onPageSelected(params);
-        this._currentIndex = params.position;
-      }
-    }, {
-      key: "_renderIndicator",
-      value: function _renderIndicator() {
-        var _this$props = this.props,
-            indicator = _this$props.indicator,
-            initialPage = _this$props.initialPage;
-        if (!indicator) return null;
-        return _react.default.cloneElement(indicator, {
-          ref: INDICATOR_REF,
-          pager: this,
-          initialPage: initialPage
-        });
-      }
-    }, {
-      key: "_goToNextPage",
-      value: function _goToNextPage() {
-        var nextIndex = (this._currentIndex + 1) % this._childrenCount;
-        this.setPage(nextIndex);
-      }
-    }, {
-      key: "_startAutoPlay",
-      value: function _startAutoPlay() {
-        if (this._timerId) clearInterval(this._timerId);
-        this._timerId = setInterval(this._goToNextPage, this.props.autoPlayInterval);
-      }
-    }, {
-      key: "_stopAutoPlay",
-      value: function _stopAutoPlay() {
-        if (this._timerId) {
-          clearInterval(this._timerId);
-          this._timerId = null;
-        }
-      }
-    }, {
-      key: "setPage",
-      value: function setPage(selectedPage) {
-        this.refs[VIEWPAGER_REF].setPage(selectedPage);
-      }
-    }, {
-      key: "setPageWithoutAnimation",
-      value: function setPageWithoutAnimation(selectedPage) {
-        this.refs[VIEWPAGER_REF].setPageWithoutAnimation(selectedPage);
-      }
-    }]);
-    return IndicatorViewPager;
-  }(_react.Component), _class.propTypes = (0, _objectSpread2.default)({}, _ViewPager.default.propTypes, {
-    indicator: _propTypes.default.node,
-    pagerStyle: _reactNative.ViewPropTypes.style,
-    autoPlayEnable: _propTypes.default.bool,
-    autoPlayInterval: _propTypes.default.number,
-    horizontalScroll: _propTypes.default.bool
-  }), _class.defaultProps = {
-    indicator: null,
-    initialPage: 0,
-    autoPlayInterval: 3000,
-    autoPlayEnable: false,
-    horizontalScroll: true
-  }, _temp));
-
-  var _default2 = IndicatorViewPager;
-  exports.default = _default2;
-
-  var styles = _reactNative.StyleSheet.create({
-    container: {},
-    pager: {
-      flex: 1
-    }
-  });
-},735,[1,545,49,8,19,20,35,38,41,37,53,184,70,2,736],"node_modules/rn-viewpager/viewpager/IndicatorViewPager.js");
+},726,[1,727,728,729,730,731],"node_modules/rn-viewpager/index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -109842,7 +109076,381 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _default2 = ViewPager;
   exports.default = _default2;
-},736,[1,545,49,8,19,20,35,38,41,37,53,184,2],"node_modules/rn-viewpager/viewpager/ViewPager.js");
+},727,[1,545,49,8,19,20,35,38,41,37,53,184,2],"node_modules/rn-viewpager/viewpager/ViewPager.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  'use strict';
+
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/objectSpread"));
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/extends"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
+
+  var _assertThisInitialized2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "@babel/runtime/helpers/assertThisInitialized"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[10], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./../../react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[13], "react-native");
+
+  var _ViewPager = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[14], "./ViewPager"));
+
+  var _class,
+      _temp,
+      _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/IndicatorViewPager.js";
+
+  var _components = {
+    IndicatorViewPager: {
+      displayName: "IndicatorViewPager"
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/IndicatorViewPager.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var VIEWPAGER_REF = 'viewPager';
+  var INDICATOR_REF = 'indicator';
+
+  var IndicatorViewPager = _wrapComponent("IndicatorViewPager")((_temp = _class = function (_Component) {
+    (0, _inherits2.default)(IndicatorViewPager, _Component);
+
+    function IndicatorViewPager(props) {
+      var _this;
+
+      (0, _classCallCheck2.default)(this, IndicatorViewPager);
+      _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(IndicatorViewPager).call(this, props));
+      _this._onPageScroll = _this._onPageScroll.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this._onPageSelected = _this._onPageSelected.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this._goToNextPage = _this._goToNextPage.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this._renderIndicator = _this._renderIndicator.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this.setPage = _this.setPage.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this.setPageWithoutAnimation = _this.setPageWithoutAnimation.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this._startAutoPlay = _this._startAutoPlay.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this._stopAutoPlay = _this._stopAutoPlay.bind((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)));
+      _this._currentIndex = props.initialPage;
+      _this._childrenCount = _react.default.Children.count(props.children);
+      return _this;
+    }
+
+    (0, _createClass2.default)(IndicatorViewPager, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        if (this.props.autoPlayEnable) this._startAutoPlay();else this._stopAutoPlay();
+      }
+    }, {
+      key: "componentWillUpdate",
+      value: function componentWillUpdate(nextProps, nextState) {
+        this._childrenCount = _react.default.Children.count(nextProps.children);
+
+        if (this.props.autoPlayEnable !== nextProps.autoPlayEnable) {
+          nextProps.autoPlayEnable ? this._startAutoPlay() : this._stopAutoPlay();
+        }
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: [styles.container, this.props.style],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 60
+          }
+        }, _react.default.createElement(_ViewPager.default, (0, _extends2.default)({}, this.props, {
+          horizontalScroll: this.props.horizontalScroll,
+          ref: VIEWPAGER_REF,
+          style: [styles.pager, this.props.pagerStyle],
+          onPageScroll: this._onPageScroll,
+          onPageSelected: this._onPageSelected,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 61
+          }
+        })), this._renderIndicator());
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function componentWillUnmount() {
+        this._stopAutoPlay();
+      }
+    }, {
+      key: "_onPageScroll",
+      value: function _onPageScroll(params) {
+        var indicator = this.refs[INDICATOR_REF];
+        indicator && indicator.onPageScroll && indicator.onPageScroll(params);
+        this.props.onPageScroll && this.props.onPageScroll(params);
+      }
+    }, {
+      key: "_onPageSelected",
+      value: function _onPageSelected(params) {
+        var indicator = this.refs[INDICATOR_REF];
+        indicator && indicator.onPageSelected && indicator.onPageSelected(params);
+        this.props.onPageSelected && this.props.onPageSelected(params);
+        this._currentIndex = params.position;
+      }
+    }, {
+      key: "_renderIndicator",
+      value: function _renderIndicator() {
+        var _this$props = this.props,
+            indicator = _this$props.indicator,
+            initialPage = _this$props.initialPage;
+        if (!indicator) return null;
+        return _react.default.cloneElement(indicator, {
+          ref: INDICATOR_REF,
+          pager: this,
+          initialPage: initialPage
+        });
+      }
+    }, {
+      key: "_goToNextPage",
+      value: function _goToNextPage() {
+        var nextIndex = (this._currentIndex + 1) % this._childrenCount;
+        this.setPage(nextIndex);
+      }
+    }, {
+      key: "_startAutoPlay",
+      value: function _startAutoPlay() {
+        if (this._timerId) clearInterval(this._timerId);
+        this._timerId = setInterval(this._goToNextPage, this.props.autoPlayInterval);
+      }
+    }, {
+      key: "_stopAutoPlay",
+      value: function _stopAutoPlay() {
+        if (this._timerId) {
+          clearInterval(this._timerId);
+          this._timerId = null;
+        }
+      }
+    }, {
+      key: "setPage",
+      value: function setPage(selectedPage) {
+        this.refs[VIEWPAGER_REF].setPage(selectedPage);
+      }
+    }, {
+      key: "setPageWithoutAnimation",
+      value: function setPageWithoutAnimation(selectedPage) {
+        this.refs[VIEWPAGER_REF].setPageWithoutAnimation(selectedPage);
+      }
+    }]);
+    return IndicatorViewPager;
+  }(_react.Component), _class.propTypes = (0, _objectSpread2.default)({}, _ViewPager.default.propTypes, {
+    indicator: _propTypes.default.node,
+    pagerStyle: _reactNative.ViewPropTypes.style,
+    autoPlayEnable: _propTypes.default.bool,
+    autoPlayInterval: _propTypes.default.number,
+    horizontalScroll: _propTypes.default.bool
+  }), _class.defaultProps = {
+    indicator: null,
+    initialPage: 0,
+    autoPlayInterval: 3000,
+    autoPlayEnable: false,
+    horizontalScroll: true
+  }, _temp));
+
+  var _default2 = IndicatorViewPager;
+  exports.default = _default2;
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {},
+    pager: {
+      flex: 1
+    }
+  });
+},728,[1,545,49,8,19,20,35,38,41,37,53,184,70,2,727],"node_modules/rn-viewpager/viewpager/IndicatorViewPager.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  'use strict';
+
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/objectSpread"));
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/extends"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[9], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./../../../react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[12], "react-native");
+
+  var _IndicatorViewPager = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[13], "../IndicatorViewPager"));
+
+  var _class,
+      _temp,
+      _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerDotIndicator.js";
+
+  var _components = {
+    PagerDotIndicator: {
+      displayName: "PagerDotIndicator"
+    }
+  };
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerDotIndicator.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var DEFAULT_DOT_RADIUS = 6;
+
+  var PagerDotIndicator = _wrapComponent("PagerDotIndicator")((_temp = _class = function (_Component) {
+    (0, _inherits2.default)(PagerDotIndicator, _Component);
+
+    function PagerDotIndicator() {
+      var _getPrototypeOf2;
+
+      var _this;
+
+      (0, _classCallCheck2.default)(this, PagerDotIndicator);
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(PagerDotIndicator)).call.apply(_getPrototypeOf2, [this].concat(args)));
+      _this.state = {
+        selectedIndex: _this.props.initialPage
+      };
+      return _this;
+    }
+
+    (0, _createClass2.default)(PagerDotIndicator, [{
+      key: "shouldComponentUpdate",
+      value: function shouldComponentUpdate(nextProps, nextState) {
+        return this.state.selectedIndex != nextState.selectedIndex || this.props.pageCount != nextProps.pageCount || this.props.dotStyle != nextProps.dotStyle || this.props.selectedDotStyle != nextProps.selectedDotStyle || this.props.style != nextProps.style;
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this$props = this.props,
+            pageCount = _this$props.pageCount,
+            dotStyle = _this$props.dotStyle,
+            selectedDotStyle = _this$props.selectedDotStyle;
+        if (pageCount <= 0) return null;
+        if (this.props.hideSingle && pageCount == 1) return null;
+        var dotsView = [];
+
+        for (var i = 0; i < pageCount; i++) {
+          var isSelect = i === this.state.selectedIndex;
+          dotsView.push(_react.default.createElement(_reactNative.View, {
+            style: [styles.dot, isSelect ? styles.selectDot : null, isSelect ? selectedDotStyle : dotStyle],
+            key: i,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
+            }
+          }));
+        }
+
+        return _react.default.createElement(_reactNative.View, (0, _extends2.default)({}, this.props, {
+          style: [styles.container, this.props.style],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56
+          }
+        }), dotsView);
+      }
+    }, {
+      key: "onPageSelected",
+      value: function onPageSelected(e) {
+        this.setState({
+          selectedIndex: e.position
+        });
+      }
+    }]);
+    return PagerDotIndicator;
+  }(_react.Component), _class.propTypes = (0, _objectSpread2.default)({}, _reactNative.ViewPropTypes, {
+    pageCount: _propTypes.default.number.isRequired,
+    initialPage: _propTypes.default.number,
+    pager: _propTypes.default.instanceOf(_IndicatorViewPager.default),
+    dotStyle: _reactNative.ViewPropTypes.style,
+    selectedDotStyle: _reactNative.ViewPropTypes.style,
+    hideSingle: _propTypes.default.bool
+  }), _class.defaultProps = {
+    pageCount: 0,
+    initialPage: 0,
+    hideSingle: false
+  }, _temp));
+
+  var _default2 = PagerDotIndicator;
+  exports.default = _default2;
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      position: 'absolute',
+      bottom: 10,
+      left: 0,
+      right: 0,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    dot: {
+      width: DEFAULT_DOT_RADIUS,
+      height: DEFAULT_DOT_RADIUS,
+      borderRadius: DEFAULT_DOT_RADIUS >> 1,
+      backgroundColor: '#BBBBBB',
+      margin: DEFAULT_DOT_RADIUS >> 1
+    },
+    selectDot: {
+      backgroundColor: 'white'
+    }
+  });
+},729,[1,545,49,8,19,20,35,38,41,53,184,70,2,728],"node_modules/rn-viewpager/viewpager/indicator/PagerDotIndicator.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   'use strict';
 
@@ -110152,17 +109760,444 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       right: 0
     }
   });
-},737,[1,545,49,19,20,35,38,41,53,184,70,2,735],"node_modules/rn-viewpager/viewpager/indicator/PagerTitleIndicator.js");
+},730,[1,545,49,19,20,35,38,41,53,184,70,2,728],"node_modules/rn-viewpager/viewpager/indicator/PagerTitleIndicator.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  'use strict';
+
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.Resource = void 0;
-  var Resource = {
-    defaultImage: 'https://increasify.com.au/wp-content/uploads/2016/08/default-image.png'
+  exports.default = void 0;
+
+  var _objectSpread2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/objectSpread"));
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf3 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[8], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "./../../../react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[11], "react-native");
+
+  var _IndicatorViewPager = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "../IndicatorViewPager"));
+
+  var _class,
+      _temp,
+      _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerTabIndicator.js";
+
+  var _components = {
+    PagerTabIndicator: {
+      displayName: "PagerTabIndicator"
+    }
   };
-  exports.Resource = Resource;
-},738,[],"src/constants/Resource.js");
+
+  var _reactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/node_modules/rn-viewpager/viewpager/indicator/PagerTabIndicator.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _reactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var PagerTabIndicator = _wrapComponent("PagerTabIndicator")((_temp = _class = function (_Component) {
+    (0, _inherits2.default)(PagerTabIndicator, _Component);
+
+    function PagerTabIndicator() {
+      var _getPrototypeOf2;
+
+      var _this;
+
+      (0, _classCallCheck2.default)(this, PagerTabIndicator);
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(PagerTabIndicator)).call.apply(_getPrototypeOf2, [this].concat(args)));
+      _this.state = {
+        selectedIndex: _this.props.initialPage
+      };
+      return _this;
+    }
+
+    (0, _createClass2.default)(PagerTabIndicator, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        var _this$props = this.props,
+            tabs = _this$props.tabs,
+            pager = _this$props.pager,
+            style = _this$props.style,
+            itemStyle = _this$props.itemStyle,
+            selectedItemStyle = _this$props.selectedItemStyle,
+            iconStyle = _this$props.iconStyle,
+            selectedIconStyle = _this$props.selectedIconStyle,
+            textStyle = _this$props.textStyle,
+            selectedTextStyle = _this$props.selectedTextStyle,
+            changePageWithAnimation = _this$props.changePageWithAnimation;
+        if (!tabs || tabs.length === 0) return null;
+        var tabsView = tabs.map(function (tab, index) {
+          var isSelected = _this2.state.selectedIndex === index;
+          return _react.default.createElement(_reactNative.TouchableOpacity, {
+            style: [styles.itemContainer, isSelected ? selectedItemStyle : itemStyle],
+            activeOpacity: 0.6,
+            key: index,
+            onPress: function onPress() {
+              if (!isSelected) {
+                if (_this2.props.changePageWithAnimation) pager.setPage(index);else pager.setPageWithoutAnimation(index);
+              }
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
+            }
+          }, _react.default.createElement(_reactNative.Image, {
+            style: [styles.image, isSelected ? selectedIconStyle : iconStyle],
+            source: isSelected ? tab.selectedIconSource : tab.iconSource,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          }), _react.default.createElement(_reactNative.Text, {
+            style: [isSelected ? styles.textSelected : styles.text, isSelected ? selectedTextStyle : textStyle],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 65
+            }
+          }, tab.text));
+        });
+        return _react.default.createElement(_reactNative.View, {
+          style: [styles.container, style],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 74
+          }
+        }, tabsView);
+      }
+    }, {
+      key: "onPageSelected",
+      value: function onPageSelected(e) {
+        this.setState({
+          selectedIndex: e.position
+        });
+      }
+    }]);
+    return PagerTabIndicator;
+  }(_react.Component), _class.propTypes = (0, _objectSpread2.default)({}, _reactNative.ViewPropTypes, {
+    initialPage: _propTypes.default.number,
+    pager: _propTypes.default.instanceOf(_IndicatorViewPager.default),
+    tabs: _propTypes.default.arrayOf(_propTypes.default.shape({
+      text: _propTypes.default.string,
+      iconSource: _reactNative.Image.propTypes.source,
+      selectedIconSource: _reactNative.Image.propTypes.source
+    })).isRequired,
+    itemStyle: _reactNative.ViewPropTypes.style,
+    selectedItemStyle: _reactNative.ViewPropTypes.style,
+    iconStyle: _reactNative.Image.propTypes.style,
+    selectedIconStyle: _reactNative.Image.propTypes.style,
+    textStyle: _reactNative.Text.propTypes.style,
+    selectedTextStyle: _reactNative.Text.propTypes.style,
+    changePageWithAnimation: _propTypes.default.bool
+  }), _class.defaultProps = {
+    tabs: [],
+    changePageWithAnimation: true
+  }, _temp));
+
+  var _default2 = PagerTabIndicator;
+  exports.default = _default2;
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      paddingTop: 8,
+      paddingBottom: 4,
+      borderTopWidth: 0.5,
+      borderTopColor: '#E0E0E0',
+      backgroundColor: '#F7F7F7'
+    },
+    itemContainer: {
+      alignItems: 'center',
+      flex: 1
+    },
+    image: {},
+    text: {
+      marginTop: 4,
+      fontSize: 11,
+      color: '#999999'
+    },
+    textSelected: {
+      marginTop: 4,
+      fontSize: 11,
+      color: '#3584F6'
+    }
+  });
+},731,[1,545,49,19,20,35,38,41,53,184,70,2,728],"node_modules/rn-viewpager/viewpager/indicator/PagerTabIndicator.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "./../../../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Account.js";
+  var _components = {
+    Account: {
+      displayName: "Account"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Account.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var Account = function (_React$Component) {
+    (0, _inherits2.default)(Account, _React$Component);
+
+    function Account() {
+      (0, _classCallCheck2.default)(this, Account);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Account).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(Account, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: {
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        }, "Account"));
+      }
+    }]);
+    return Account;
+  }(_react.default.Component);
+
+  Account = _wrapComponent("Account")(Account);
+  var _default2 = Account;
+  exports.default = _default2;
+},732,[1,19,20,35,38,41,53,184,2],"src/containers/Main/Account.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "./../../../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Search.js";
+  var _components = {
+    Search: {
+      displayName: "Search"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Main/Search.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var Search = function (_React$Component) {
+    (0, _inherits2.default)(Search, _React$Component);
+
+    function Search() {
+      (0, _classCallCheck2.default)(this, Search);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Search).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(Search, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: {
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        }, "Search"));
+      }
+    }]);
+    return Search;
+  }(_react.default.Component);
+
+  Search = _wrapComponent("Search")(Search);
+  var _default2 = Search;
+  exports.default = _default2;
+},733,[1,19,20,35,38,41,53,184,2],"src/containers/Main/Search.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "./../../../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[8], "react-native");
+
+  var _jsxFileName = "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Activity/index.js";
+  var _components = {
+    Activity: {
+      displayName: "Activity"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/leon/Desktop/Code/GitCode/ProjectR/src/containers/Activity/index.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var Activity = function (_React$Component) {
+    (0, _inherits2.default)(Activity, _React$Component);
+
+    function Activity() {
+      (0, _classCallCheck2.default)(this, Activity);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Activity).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(Activity, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: {
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        }, "Activity"));
+      }
+    }]);
+    return Activity;
+  }(_react.default.Component);
+
+  Activity = _wrapComponent("Activity")(Activity);
+  var _default2 = Activity;
+  exports.default = _default2;
+},734,[1,19,20,35,38,41,53,184,2],"src/containers/Activity/index.js");
+__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
+  module.exports = {
+  "name": "ProjectR",
+  "displayName": "ProjectR"
+};
+},735,[],"app.json");
 __r(90);
 __r(0);
 //# sourceMappingURL=index.map
