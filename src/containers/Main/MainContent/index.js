@@ -4,6 +4,8 @@ import { View, Text, Image, ScrollView, FlatList, StyleSheet, Dimensions } from 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { fetchGet } from '../../../utils/http';
 import { APIS, APP } from '../../../constants/API';
+import { Resource } from '../../../constants/Resource';
+import { IndicatorViewPager, PagerDotIndicator } from 'rn-viewpager';
 
 const wWidth = Dimensions.get('window').width;
 
@@ -72,23 +74,41 @@ class MainContent extends React.Component {
       }
     })
   }
-  /** 渲染Item */
-  _renderItem = ({item, index, separators}) => (
-    <View style={styles.itemContent}>
-      <Image style={styles.image} source={{ uri: item.ImgUrl}}/>
-      <View style={styles.textContent}>
-        <Text style={styles.titleText} numberOfLines={2}>{item.Title}</Text>
-        <View style={styles.bottomContent}>
-          <Text style={styles.timeText}>{item.IssueTime}</Text>
-          {
-            !!item.Tags && <Text style={styles.tipText}>{item.Tags}</Text>
-          } 
-        </View>
-      </View>
-    </View>
-  )
+  _renderDotIndicator() {
+    const { Focus } = this.state;
+    return <PagerDotIndicator pageCount={Focus.length} />;
+  }
 
-  _renderItemContent = () => (
+  /** 渲染Item */
+  _renderItem = ({item, index, separators}) => {
+    if (index === 0) {
+      const { Focus } = this.state;
+      const isFocus = !!Focus && Focus.length > 0 ;
+      console.log('!!', Focus, isFocus, Focus.length)
+      return (
+        <IndicatorViewPager style={styles.pageContent} autoPlayEnable={true}
+          indicator={this._renderDotIndicator()}>
+          {
+            !isFocus ?
+              <Image style={styles.pageImage} source={{ uri: Resource.defaultImage }} /> :
+              (
+                Focus.map((focusItem) => {
+                  return (
+                    <Image style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
+                      {/* <Text>Test</Text> */}
+                    </Image>
+                  )
+                })
+              )
+          }
+        </IndicatorViewPager>
+      )
+    } else {
+      return this._renderItemContent(item, index)
+    }
+  }
+
+  _renderItemContent = (item, index) => (
     <View style={styles.itemContent}>
       <Image style={styles.image} source={{ uri: item.ImgUrl }} />
       <View style={styles.textContent}>
@@ -178,6 +198,15 @@ const styles = StyleSheet.create({
   activeTabText: {
     fontSize: 24,
     color: '#2a5caa'
+  },
+
+  pageContent: {
+    height: 240,
+    width: wWidth
+  },
+  pageImage: {
+    height: 240,
+    width: wWidth
   },
 
   contentList: {
