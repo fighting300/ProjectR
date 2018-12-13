@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Text, Image, ImageBackground, ScrollView, FlatList, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Image, ImageBackground, ScrollView, FlatList, ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { fetchGet } from '../../../utils/http';
 import { APIS, APP } from '../../../constants/API';
@@ -42,17 +42,58 @@ class MainContent extends React.Component {
     super(props);
     this.state = {
       pageNo: 1,
+      modilarId: 113175,
+      styleId: 304,
+
       Focus: [],
-      IndexContent: []
+      IndexContent: [],
+      isLoading: true,
+      isRefreshing: false,
+      showFoot: 0  // 控制foot， 0：隐藏footer  1：已加载完成,没有更多数据   2 ：显示加载中
     }
   }
 
   componentWillMount() {
-    const { pageNo } = this.state;
+    this.onFetch()
+  }
+  
+  /** 下拉刷新 */
+  _onRefresh = () => {
+    this.setState({
+      isRefreshing: true,
+      pageNo: 1
+    }, () => {
+      this.onFetch(); 
+    })
+  }
+
+  /** 上拉刷新 */
+  _onEndReached = () => {
+    const { showFoot, pageNo, modilarId, styleId } = this.state;
+    //如果是正在加载中或没有更多数据了，则返回
+    if (showFoot !== 0) {
+      return;
+    }
+    if (pageNo !== 1 && pageNo >= 100) {
+      return;
+    } else {
+      this.state.pageNo++;
+    }
+    //底部显示正在加载更多数据
+    this.setState({ showFoot: 2 });
+    console.log('_onEndReached', this.state);
+    if (this.state.pageNo > 1) {
+      this.onFetch(); 
+    }
+  }
+
+  /** 网络请求 */
+  onFetch = () => {
+    const { pageNo, modilarId, styleId } = this.state;
     const params = {
       pageNo,
-      modilarId: 113175,
-      styleId: 304,
+      modilarId,
+      styleId,
       ...APP
     }
     console.log('request params', params);
@@ -65,21 +106,66 @@ class MainContent extends React.Component {
       params,
       success: (response) => {
         const { Data } = response;
-        if (!Data)  return;
-        const { Focus, IndexContent } = Data;
+        if (!Data) return;
+        const { Focus: LoadFocus, IndexContent: LoadIndexContent } = Data;
+        const { Focus, IndexContent, pageNo, isRefreshing } = this.state;
+        let foot = 0;
+        if ( pageNo >= 100 ) {
+          foot = 1; // listView底部显示没有更多数据了
+        }
         this.setState({
-          Focus, IndexContent
+          Focus: isRefreshing ? LoadFocus : Focus.concat(LoadFocus), 
+          IndexContent: isRefreshing ? LoadIndexContent : IndexContent.concat(LoadIndexContent),
+          isLoading: false,
+          isRefreshing: false,
+          showFoot: foot
         })
-        console.log('response detail', Focus, IndexContent);
+        console.log('response detail', Data);
       }
     })
   }
+
+  /** 初始loading View */
+  _renderLoadingView() {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator animating={true} color='blue'size="large"/>
+      </View>
+    );
+  }
+
+  /** 上拉展示Footer */
+  _renderFooter = () => {
+    const { showFoot } = this.state;
+    
+    if (showFoot === 1) { // 无数据
+      return (
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>没有更多数据了</Text>
+        </View>
+      );
+    } else if (showFoot === 2) { // 正在加载
+      return (
+        <View style={styles.footer}>
+          <ActivityIndicator />
+          <Text style={styles.footerText}>正在加载更多数据...</Text>
+        </View>
+      );
+    } else if (showFoot === 0) { // 空View
+      return (
+        <View style={styles.footer}></View>
+      );
+    }
+
+  }
+
+  /** Page 黑点提示 */
   _renderDotIndicator() {
     const { Focus } = this.state;
     return <PagerDotIndicator style={{justifyContent: 'flex-end'}} pageCount={Focus.length} />;
   }
 
-  /** 渲染Item */
+  /** 渲染广告 Item */
   _renderItem = ({item, index, separators}) => {
     if (index === 0) {
       const { Focus } = this.state;
@@ -94,11 +180,13 @@ class MainContent extends React.Component {
               (
                 Focus.map((focusItem) => {
                   return (
-                    <ImageBackground style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
-                      <View style={styles.pageTextView}>
-                        <Text style={styles.pageText}>{focusItem.Title}</Text>
-                      </View>
-                    </ImageBackground>
+                    <View key={`default_Focus_${focusItem.Id}`}>
+                      <ImageBackground style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
+                        <View style={styles.pageTextView}>
+                          <Text style={styles.pageText} numberOfLines={1}>{focusItem.Title}</Text>
+                        </View>
+                      </ImageBackground>
+                    </View>
                   )
                 })
               )
@@ -110,6 +198,7 @@ class MainContent extends React.Component {
     }
   }
 
+  /** 渲染普通Item内容 */
   _renderItemContent = (item, index) => (
     <View style={styles.itemContent}>
       <Image style={styles.image} source={{ uri: item.ImgUrl }} />
@@ -125,18 +214,20 @@ class MainContent extends React.Component {
     </View>
   )
 
+  /** 渲染多图Item内容 */
   _renderItemRecommend = () => {
 
   }
 
+  /** 渲染大图Item内容 */
   _renderItemTopic = () => {
 
   }
 
-  _keyExtractor = (item, index) => `default_${index}_${item.title}`;
+  _keyExtractor = (item, index) => `default_${index}_${item.Id}`;
 
   render() {
-    const { Focus, IndexContent } = this.state;
+    const { Focus, IndexContent, isLoading } = this.state;
     const tabsArray = [
       '推荐', '新闻', '专题', '走进三门',
       '图集', '看电视', '读报纸', '听广播', '时代楷模'
@@ -164,13 +255,16 @@ class MainContent extends React.Component {
             <View style={[styles.separator, highlighted && { marginLeft: 0 }]} />
           )}
           ListEmptyComponent={null}
+          ListFooterComponent={this._renderFooter}
           initialNumToRender={8}
           getItemLayout={(data, index) => (
             { length: ITEM_HEIGHT + SEPERATOR_HEIGHT, offset: (ITEM_HEIGHT + SEPERATOR_HEIGHT) * index, index }
           )}
           initialScrollIndex={0}
-          refreshing={true}
-          onRefresh={()=> {}}
+          refreshing={isLoading}
+          onEndReachedThreshold={0}
+          onEndReached={this._onEndReached}
+          onRefresh={this._onRefresh}
           removeClippedSubviews
         />
       </View>
@@ -265,6 +359,19 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     fontSize: 10,
     color: 'red'
+  },
+  footer: {
+    flexDirection: 'row',
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  footerText: { 
+    color: '#999999', 
+    fontSize: 14, 
+    marginTop: 5, 
+    marginBottom: 5
   }
 });
 

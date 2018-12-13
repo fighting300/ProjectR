@@ -108085,6 +108085,58 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       (0, _classCallCheck2.default)(this, MainContent);
       _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(MainContent).call(this, props));
 
+      _this._onRefresh = function () {
+        _this.setState({
+          isRefreshing: true,
+          pageNo: 1
+        }, function () {
+          _this.onFetch();
+        });
+      };
+
+      _this._onEndReached = function () {
+        var _this$state = _this.state,
+            showFoot = _this$state.showFoot,
+            pageNo = _this$state.pageNo,
+            modilarId = _this$state.modilarId,
+            styleId = _this$state.styleId;
+
+        if (showFoot !== 0) {
+          return;
+        }
+
+        if (pageNo !== 1 && pageNo >= 100) {
+          return;
+        } else {
+          _this.state.pageNo++;
+        }
+
+        _this.setState({
+          showFoot: 2
+        });
+
+        console.log('_onEndReached', _this.state);
+
+        if (_this.state.pageNo > 1) {
+          _this.onFetch();
+        }
+      };
+
+      _this.onFetch = function () {
+        var _this$state2 = _this.state,
+            pageNo = _this$state2.pageNo,
+            modilarId = _this$state2.modilarId,
+            styleId = _this$state2.styleId;
+        var params = (0, _objectSpread2.default)({
+          pageNo: pageNo,
+          modilarId: modilarId,
+          styleId: styleId
+        }, _API.APP);
+        console.log('request params', params);
+
+        _this.fetchContent(params);
+      };
+
       _this.fetchContent = function (params) {
         (0, _http.fetchGet)({
           serviceType: _API.APIS.DMain_Recommend,
@@ -108092,17 +108144,90 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           success: function success(response) {
             var Data = response.Data;
             if (!Data) return;
-            var Focus = Data.Focus,
-                IndexContent = Data.IndexContent;
+            var LoadFocus = Data.Focus,
+                LoadIndexContent = Data.IndexContent;
+            var _this$state3 = _this.state,
+                Focus = _this$state3.Focus,
+                IndexContent = _this$state3.IndexContent,
+                pageNo = _this$state3.pageNo,
+                isRefreshing = _this$state3.isRefreshing;
+            var foot = 0;
+
+            if (pageNo >= 10) {
+              foot = 1;
+            }
 
             _this.setState({
-              Focus: Focus,
-              IndexContent: IndexContent
+              Focus: isRefreshing ? LoadFocus : Focus.concat(LoadFocus),
+              IndexContent: isRefreshing ? LoadIndexContent : IndexContent.concat(LoadIndexContent),
+              isLoading: false,
+              isRefreshing: false,
+              showFoot: foot
             });
 
-            console.log('response detail', Focus, IndexContent);
+            console.log('response detail', Data);
           }
         });
+      };
+
+      _this._renderFooter = function () {
+        var showFoot = _this.state.showFoot;
+
+        if (showFoot === 1) {
+          return _react.default.createElement(_reactNative.View, {
+            style: {
+              height: 30,
+              alignItems: 'center',
+              justifyContent: 'flex-start'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 144
+            }
+          }, _react.default.createElement(_reactNative.Text, {
+            style: {
+              color: '#999999',
+              fontSize: 14,
+              marginTop: 5,
+              marginBottom: 5
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 145
+            }
+          }, "\u6CA1\u6709\u66F4\u591A\u6570\u636E\u4E86"));
+        } else if (showFoot === 2) {
+          return _react.default.createElement(_reactNative.View, {
+            style: styles.footer,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 152
+            }
+          }, _react.default.createElement(_reactNative.ActivityIndicator, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 153
+            }
+          }), _react.default.createElement(_reactNative.Text, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 154
+            }
+          }, "\u6B63\u5728\u52A0\u8F7D\u66F4\u591A\u6570\u636E..."));
+        } else if (showFoot === 0) {
+          return _react.default.createElement(_reactNative.View, {
+            style: styles.footer,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 159
+            }
+          }, _react.default.createElement(_reactNative.Text, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 160
+            }
+          }));
+        }
       };
 
       _this._renderItem = function (_ref) {
@@ -108120,7 +108245,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             indicator: _this._renderDotIndicator(),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 89
+              lineNumber: 180
             }
           }, !isFocus ? _react.default.createElement(_reactNative.Image, {
             style: styles.pageImage,
@@ -108129,31 +108254,38 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 93
+              lineNumber: 184
             }
           }) : Focus.map(function (focusItem) {
-            return _react.default.createElement(_reactNative.ImageBackground, {
+            return _react.default.createElement(_reactNative.View, {
+              key: "default_Focus_" + focusItem.Id,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 188
+              }
+            }, _react.default.createElement(_reactNative.ImageBackground, {
               style: styles.pageImage,
               source: {
                 uri: focusItem.ImgUrl
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 97
+                lineNumber: 189
               }
             }, _react.default.createElement(_reactNative.View, {
               style: styles.pageTextView,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 98
+                lineNumber: 190
               }
             }, _react.default.createElement(_reactNative.Text, {
               style: styles.pageText,
+              numberOfLines: 1,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 99
+                lineNumber: 191
               }
-            }, focusItem.Title)));
+            }, focusItem.Title))));
           }));
         } else {
           return _this._renderItemContent(item, index);
@@ -108165,7 +108297,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           style: styles.itemContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 208
           }
         }, _react.default.createElement(_reactNative.Image, {
           style: styles.image,
@@ -108174,38 +108306,38 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 209
           }
         }), _react.default.createElement(_reactNative.View, {
           style: styles.textContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 210
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.titleText,
           numberOfLines: 2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 211
           }
         }, item.Title), _react.default.createElement(_reactNative.View, {
           style: styles.bottomContent,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 212
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: styles.timeText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 213
           }
         }, item.IssueTime), !!item.Tags && _react.default.createElement(_reactNative.Text, {
           style: styles.tipText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 215
           }
         }, item.Tags))));
       };
@@ -108215,13 +108347,18 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       _this._renderItemTopic = function () {};
 
       _this._keyExtractor = function (item, index) {
-        return "default_" + index + "_" + item.title;
+        return "default_" + index + "_" + item.Id;
       };
 
       _this.state = {
         pageNo: 1,
+        modilarId: 113175,
+        styleId: 304,
         Focus: [],
-        IndexContent: []
+        IndexContent: [],
+        isLoading: true,
+        isRefreshing: false,
+        showFoot: 0
       };
       return _this;
     }
@@ -108229,14 +108366,26 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     (0, _createClass2.default)(MainContent, [{
       key: "componentWillMount",
       value: function componentWillMount() {
-        var pageNo = this.state.pageNo;
-        var params = (0, _objectSpread2.default)({
-          pageNo: pageNo,
-          modilarId: 113175,
-          styleId: 304
-        }, _API.APP);
-        console.log('request params', params);
-        this.fetchContent(params);
+        this.onFetch();
+      }
+    }, {
+      key: "_renderLoadingView",
+      value: function _renderLoadingView() {
+        return _react.default.createElement(_reactNative.View, {
+          style: styles.container,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 132
+          }
+        }, _react.default.createElement(_reactNative.ActivityIndicator, {
+          animating: true,
+          color: "blue",
+          size: "large",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133
+          }
+        }));
       }
     }, {
       key: "_renderDotIndicator",
@@ -108249,23 +108398,24 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           pageCount: Focus.length,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 170
           }
         });
       }
     }, {
       key: "render",
       value: function render() {
-        var _this$state = this.state,
-            Focus = _this$state.Focus,
-            IndexContent = _this$state.IndexContent;
+        var _this$state4 = this.state,
+            Focus = _this$state4.Focus,
+            IndexContent = _this$state4.IndexContent,
+            isLoading = _this$state4.isLoading;
         var tabsArray = ['推荐', '新闻', '专题', '走进三门', '图集', '看电视', '读报纸', '听广播', '时代楷模'];
         var contentArray = IndexContent;
         return _react.default.createElement(_reactNative.View, {
           style: styles.container,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 147
+            lineNumber: 243
           }
         }, _react.default.createElement(_reactNative.ScrollView, {
           style: styles.tabScroll,
@@ -108273,7 +108423,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           showsHorizontalScrollIndicator: false,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148
+            lineNumber: 244
           }
         }, tabsArray.map(function (item) {
           return _react.default.createElement(_reactNative.Text, {
@@ -108281,7 +108431,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             style: styles.tabText,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 153
+              lineNumber: 249
             }
           }, item);
         })), _react.default.createElement(_reactNative.FlatList, {
@@ -108301,11 +108451,12 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
               }],
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 164
+                lineNumber: 260
               }
             });
           },
           ListEmptyComponent: null,
+          ListFooterComponent: this._renderFooter,
           initialNumToRender: 8,
           getItemLayout: function getItemLayout(data, index) {
             return {
@@ -108315,12 +108466,14 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             };
           },
           initialScrollIndex: 0,
-          refreshing: true,
-          onRefresh: function onRefresh() {},
+          refreshing: isLoading,
+          onEndReachedThreshold: 0,
+          onEndReached: this._onEndReached,
+          onRefresh: this._onRefresh,
           removeClippedSubviews: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 157
+            lineNumber: 253
           }
         }));
       }
