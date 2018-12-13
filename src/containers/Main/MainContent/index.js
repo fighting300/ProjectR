@@ -179,6 +179,7 @@ class MainContent extends React.Component {
         return this._renderItemTopic(item, index);
       } else if (DisplayMode === TypeName.Main_TypeImg) {
         // 渲染多图模式
+        return this._renderItemRecommend(item, index);
       } 
     }
   }
@@ -228,8 +229,21 @@ class MainContent extends React.Component {
   )
 
   /** 渲染多图Item内容 */
-  _renderItemRecommend = () => {
-
+  _renderItemRecommend = (item, index) => {
+    console.log('_renderItemRecommend', item);
+    return (
+      <View style={styles.imageContent}>
+        <Text style={styles.titleText} numberOfLines={1}>{item.Title}</Text>
+        <View style={styles.imgView}>
+          {
+            item.ImgUrls.map((imageItem, curIndex) => 
+              (<Image key={`default_ImageItem_${item.Id}_${curIndex}`} style={[styles.imageItem, curIndex != 0 ? { marginLeft: 5 } : {} ]} source={{ uri: imageItem }} />)
+            )
+          }
+        </View>
+        <Text style={styles.timeText}>{item.IssueTime}</Text>
+      </View>
+    )
   }
 
   /** 渲染大图Item内容 */
@@ -372,6 +386,24 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     fontSize: 10,
     color: 'red'
+  },
+
+  imageContent: {
+    flex: 1,
+    flexDirection: 'column',
+    height: ITEM_HEIGHT,
+    width: wWidth,
+    paddingHorizontal: 10,
+    paddingVertical: 10
+  },
+  imgView: {
+    marginTop: 3,
+    marginBottom: 3,
+    flexDirection: 'row'
+  },
+  imageItem: {
+    width: (wWidth - 40)/3,
+    height: 50
   },
 
   itemBigImg: {
