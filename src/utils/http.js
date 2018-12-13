@@ -8,8 +8,9 @@ let defaultReqData = {
 };
 
 const common_url = APIS.Main_Path; 
+const local_url = APIS.Local_Path; 
 const common_timeOut = 5000;
-
+const mock_str = 'mock';
 /**
  * Get请求
  * 
@@ -21,8 +22,11 @@ const common_timeOut = 5000;
  */
 let fetchGet = (arg) => {
     const { serviceType, timeOut, params, success, fail, error } = arg;
-
     let url = common_url + serviceType;
+    
+    if (serviceType.indexOf(mock_str) != -1) {
+        url = local_url + serviceType;
+    }
     if (params) {
         let paramsArray = [];
         //拼接参数
@@ -117,7 +121,7 @@ let fetchPost = (arg) => {
 let fetchUpload = (arg) => {
     const { serviceType, timeOut, images, params, success, fail, error } = arg;
     let url = common_url + serviceType;
-    console.log('request', url, images)
+    console.log('request', url, images, __DEV__)
     let formData = new FormData();
     if (params) {
         formData = params;

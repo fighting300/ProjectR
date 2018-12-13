@@ -1,4 +1,5 @@
 export const APIS = {
+  Local_Path: 'http://localhost:8081',
   Main_Path: 'http://apiparty.xinhuaapp.com/Service/IndexSvr.svc',
   
   ServiceInit: '/MainSvr.svc',
@@ -9,7 +10,9 @@ export const APIS = {
   DApp_Splash: '/GetSplash',
 
   DMain_Recommend: '/GetIndexPage',
-  DMain_News: '/GetIndexPage'
+  DMain_News: '/GetIndexPage',
+
+  Mock_MainRecommend: '/src/mock/main.json',
 }
 
 export const APP = {

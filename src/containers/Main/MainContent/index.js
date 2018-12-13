@@ -101,8 +101,9 @@ class MainContent extends React.Component {
   }
 
   fetchContent = (params) => {
+    // APIS.Mock_MainRecommend   APIS.DMain_Recommend
     fetchGet({
-      serviceType: APIS.DMain_Recommend,
+      serviceType: APIS.Mock_MainRecommend,
       params,
       success: (response) => {
         const { Data } = response;
