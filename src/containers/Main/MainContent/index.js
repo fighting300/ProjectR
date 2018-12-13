@@ -4,6 +4,7 @@ import { View, Text, Image, ImageBackground, ScrollView, FlatList, ActivityIndic
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { fetchGet } from '../../../utils/http';
 import { APIS, APP } from '../../../constants/API';
+import { TypeName } from '../../../constants/Config';
 import { Resource } from '../../../constants/Resource';
 import { IndicatorViewPager, PagerDotIndicator } from 'rn-viewpager';
 
@@ -168,34 +169,46 @@ class MainContent extends React.Component {
   /** 渲染广告 Item */
   _renderItem = ({item, index, separators}) => {
     if (index === 0) {
-      const { Focus } = this.state;
-      const isFocus = !!Focus && Focus.length > 0 ;
-      console.log('!!', Focus, isFocus, Focus.length)
-      return (
-        <IndicatorViewPager style={styles.pageContent} autoPlayEnable={true}
-          indicator={this._renderDotIndicator()}>
-          {
-            !isFocus ?
-              <Image style={styles.pageImage} source={{ uri: Resource.defaultImage }} /> :
-              (
-                Focus.map((focusItem) => {
-                  return (
-                    <View key={`default_Focus_${focusItem.Id}`}>
-                      <ImageBackground style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
-                        <View style={styles.pageTextView}>
-                          <Text style={styles.pageText} numberOfLines={1}>{focusItem.Title}</Text>
-                        </View>
-                      </ImageBackground>
-                    </View>
-                  )
-                })
-              )
-          }
-        </IndicatorViewPager>
-      )
+      return this._renderItemFocus(item, index);
     } else {
-      return this._renderItemContent(item, index)
+      const { DisplayMode } = item;
+      console.log('item', item, DisplayMode, TypeName.Main_TypeBigImg, DisplayMode === TypeName.Main_TypeBigImg)
+      if ( DisplayMode === TypeName.Main_TypeNormal) {
+        return this._renderItemContent(item, index);
+      } else if (DisplayMode === TypeName.Main_TypeBigImg) {
+        return this._renderItemTopic(item, index);
+      } else if (DisplayMode === TypeName.Main_TypeImg) {
+        // 渲染多图模式
+      } 
     }
+  }
+
+  _renderItemFocus = (item, index) => {
+    const { Focus } = this.state;
+    const isFocus = !!Focus && Focus.length > 0;
+    console.log('!!Focus', Focus, isFocus, Focus.length)
+    return (
+      <IndicatorViewPager style={styles.pageContent} autoPlayEnable={true}
+        indicator={this._renderDotIndicator()}>
+        {
+          !isFocus ?
+            <Image style={styles.pageImage} source={{ uri: Resource.defaultImage }} /> :
+            (
+              Focus.map((focusItem) => {
+                return (
+                  <View key={`default_Focus_${focusItem.Id}`}>
+                    <ImageBackground style={styles.pageImage} source={{ uri: focusItem.ImgUrl }}>
+                      <View style={styles.pageTextView}>
+                        <Text style={styles.pageText} numberOfLines={1}>{focusItem.Title}</Text>
+                      </View>
+                    </ImageBackground>
+                  </View>
+                )
+              })
+            )
+        }
+      </IndicatorViewPager>
+    )
   }
 
   /** 渲染普通Item内容 */
@@ -220,8 +233,8 @@ class MainContent extends React.Component {
   }
 
   /** 渲染大图Item内容 */
-  _renderItemTopic = () => {
-
+  _renderItemTopic = (item, index) => {
+    return <Image style={styles.itemBigImg} source={{ uri: item.ImgUrl }} />
   }
 
   _keyExtractor = (item, index) => `default_${index}_${item.Id}`;
@@ -360,6 +373,15 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: 'red'
   },
+
+  itemBigImg: {
+    flex: 1,
+    flexDirection: 'row',
+    height: ITEM_HEIGHT,
+    width: wWidth,
+    paddingVertical: 15
+  },
+
   footer: {
     flexDirection: 'row',
     height: 24,
