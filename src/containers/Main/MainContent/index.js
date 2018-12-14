@@ -55,11 +55,38 @@ class MainContent extends React.Component {
   }
 
   componentWillMount() {
+
+  }
+
+  shouldComponentUpdate(nextState, nextProps) {
+    const stateNames = [
+      'Focus',
+      'IndexContent',
+      'isLoading',
+      'isRefreshing',
+      'showFoot'
+    ];
+    const propsNames = [
+    ];
+    const isStateChange = stateNames.some(name => this.state[name] != nextState[name]);
+    const isPropsChange = propsNames.some(name => this.props[name] != nextProps[name]);
+    if (isStateChange || isPropsChange) {
+    }
+    return isStateChange || isPropsChange;
+  }
+
+  componentWillReceiveProps(nextState, nextProps) {
+    console.log('componentWillReceiveProps')
+  }
+
+  componentDidMount() {
     this.onFetch()
+
   }
   
   /** 下拉刷新 */
   _onRefresh = () => {
+    console.log('_onRefresh')
     this.setState({
       isRefreshing: true,
       pageNo: 1
@@ -69,7 +96,9 @@ class MainContent extends React.Component {
   }
 
   /** 上拉刷新 */
-  _onEndReached = () => {
+  _onEndReached = ({distanceFromEnd}) => {
+    console.log('_onEndReached', this.state, distanceFromEnd);
+    if (distanceFromEnd <= 20) return;
     const { showFoot, pageNo, modilarId, styleId } = this.state;
     //如果是正在加载中或没有更多数据了，则返回
     if (showFoot !== 0) {
@@ -82,7 +111,6 @@ class MainContent extends React.Component {
     }
     //底部显示正在加载更多数据
     this.setState({ showFoot: 2 });
-    console.log('_onEndReached', this.state);
     if (this.state.pageNo > 1) {
       this.onFetch(); 
     }
@@ -110,18 +138,33 @@ class MainContent extends React.Component {
         if (!Data) return;
         const { Focus: LoadFocus, IndexContent: LoadIndexContent } = Data;
         const { Focus, IndexContent, pageNo, isRefreshing } = this.state;
+        let FocusData = [], IndexContentData = [];
+        const curIndex = isRefreshing ? 0 : IndexContent.length;
+        LoadFocus.map((focusItem, index) => {
+          FocusData.push({
+            index: index,
+            ...focusItem
+          });
+        });
+        LoadIndexContent.map(( contentItem, index) => {
+          IndexContentData.push({
+            index: curIndex + index,
+            ...contentItem
+          });
+        })
         let foot = 0;
         if ( pageNo >= 100 ) {
           foot = 1; // listView底部显示没有更多数据了
         }
+        console.log('response detail', this.state, isRefreshing ? LoadFocus : Focus.concat(LoadFocus), );
         this.setState({
-          Focus: isRefreshing ? LoadFocus : Focus.concat(LoadFocus), 
-          IndexContent: isRefreshing ? LoadIndexContent : IndexContent.concat(LoadIndexContent),
+          Focus: isRefreshing ? FocusData : Focus.concat(FocusData), 
+          IndexContent: isRefreshing ? IndexContentData : IndexContent.concat(IndexContentData),
           isLoading: false,
           isRefreshing: false,
           showFoot: foot
         })
-        console.log('response detail', Data);
+        
       }
     })
   }
@@ -166,28 +209,11 @@ class MainContent extends React.Component {
     return <PagerDotIndicator style={{justifyContent: 'flex-end'}} pageCount={Focus.length} />;
   }
 
-  /** 渲染广告 Item */
-  _renderItem = ({item, index, separators}) => {
-    if (index === 0) {
-      return this._renderItemFocus(item, index);
-    } else {
-      const { DisplayMode } = item;
-      console.log('item', item, DisplayMode, TypeName.Main_TypeBigImg, DisplayMode === TypeName.Main_TypeBigImg)
-      if ( DisplayMode === TypeName.Main_TypeNormal) {
-        return this._renderItemContent(item, index);
-      } else if (DisplayMode === TypeName.Main_TypeBigImg) {
-        return this._renderItemTopic(item, index);
-      } else if (DisplayMode === TypeName.Main_TypeImg) {
-        // 渲染多图模式
-        return this._renderItemRecommend(item, index);
-      } 
-    }
-  }
 
-  _renderItemFocus = (item, index) => {
+  _renderFocus = () => {
     const { Focus } = this.state;
     const isFocus = !!Focus && Focus.length > 0;
-    console.log('!!Focus', Focus, isFocus, Focus.length)
+    console.count('!!Focus', Focus, isFocus, Focus.length)
     return (
       <IndicatorViewPager style={styles.pageContent} autoPlayEnable={true}
         indicator={this._renderDotIndicator()}>
@@ -212,6 +238,20 @@ class MainContent extends React.Component {
     )
   }
 
+  /** 渲染广告 Item */
+  _renderItem = ({ item, index, separators }) => {
+    console.log('item', item, index, item.Title, this.state.IndexContent.length)
+    const { DisplayMode } = item;
+    if (DisplayMode === TypeName.Main_TypeBigImg) {
+      return this._renderItemTopic(item, index);
+    } else if (DisplayMode === TypeName.Main_TypeImg) {
+      // 渲染多图模式
+      return this._renderItemRecommend(item, index);
+    } else {
+      return this._renderItemContent(item, index);
+    }
+  } 
+
   /** 渲染普通Item内容 */
   _renderItemContent = (item, index) => (
     <View style={styles.itemContent}>
@@ -229,29 +269,30 @@ class MainContent extends React.Component {
   )
 
   /** 渲染多图Item内容 */
-  _renderItemRecommend = (item, index) => {
-    console.log('_renderItemRecommend', item);
-    return (
-      <View style={styles.imageContent}>
-        <Text style={styles.titleText} numberOfLines={1}>{item.Title}</Text>
-        <View style={styles.imgView}>
-          {
-            item.ImgUrls.map((imageItem, curIndex) => 
-              (<Image key={`default_ImageItem_${item.Id}_${curIndex}`} style={[styles.imageItem, curIndex != 0 ? { marginLeft: 5 } : {} ]} source={{ uri: imageItem }} />)
-            )
-          }
-        </View>
-        <Text style={styles.timeText}>{item.IssueTime}</Text>
+  _renderItemRecommend = (item, index) => (
+    <View style={styles.imageContent}>
+      <Text style={styles.titleText} numberOfLines={1}>{item.Title}</Text>
+      <View style={styles.imgView}>
+        {
+          item.ImgUrls.map((imageItem, curIndex) =>
+            (<Image key={`default_ImageItem_${item.Id}_${curIndex}`} style={[styles.imageItem, curIndex != 0 ? { marginLeft: 5 } : {}]} source={{ uri: imageItem }} />)
+          )
+        }
       </View>
-    )
-  }
+      <Text style={styles.timeText}>{item.IssueTime}</Text>
+    </View>
+  )
+  
 
   /** 渲染大图Item内容 */
-  _renderItemTopic = (item, index) => {
-    return <Image style={styles.itemBigImg} source={{ uri: item.ImgUrl }} />
-  }
+  _renderItemTopic = (item, index) => (<Image style={styles.itemBigImg} source={{ uri: item.ImgUrl }} />)
+  
+  _keyExtractor = (item, index) => `default_${item.Id}_${index}`;
 
-  _keyExtractor = (item, index) => `default_${index}_${item.Id}`;
+  _renderListEmptyComponent = () => {
+    console.log('_renderListEmptyComponent')
+    return (<View style={styles.emptyContent}><Text style={{fontSize: 16}}>暂无数据下拉刷新</Text></View>)
+  };
 
   render() {
     const { Focus, IndexContent, isLoading } = this.state;
@@ -281,15 +322,16 @@ class MainContent extends React.Component {
           ItemSeparatorComponent={({ highlighted }) => (
             <View style={[styles.separator, highlighted && { marginLeft: 0 }]} />
           )}
-          ListEmptyComponent={null}
+          ListEmptyComponent={this._renderListEmptyComponent}
           ListFooterComponent={this._renderFooter}
           initialNumToRender={8}
-          getItemLayout={(data, index) => (
+          getItemLayout={(item, index) => (
             { length: ITEM_HEIGHT + SEPERATOR_HEIGHT, offset: (ITEM_HEIGHT + SEPERATOR_HEIGHT) * index, index }
           )}
           initialScrollIndex={0}
+          ListHeaderComponent={this._renderFocus}
           refreshing={isLoading}
-          onEndReachedThreshold={0}
+          onEndReachedThreshold={0.1}
           onEndReached={this._onEndReached}
           onRefresh={this._onRefresh}
           removeClippedSubviews
@@ -321,6 +363,14 @@ const styles = StyleSheet.create({
   activeTabText: {
     fontSize: 24,
     color: '#2a5caa'
+  },
+
+  emptyContent: { 
+    height: '100%', 
+    width: '100%', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    backgroundColor: 'red'
   },
 
   pageContent: {
