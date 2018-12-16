@@ -1,6 +1,11 @@
 
 import React from 'react';
-import { View, Text, Image, ImageBackground, ScrollView, FlatList, ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Image, 
+  ImageBackground, 
+  ScrollView, 
+  FlatList, 
+  TouchableHighlight,
+  ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { fetchGet } from '../../../utils/http';
 import { APIS, APP } from '../../../constants/API';
@@ -98,7 +103,6 @@ class MainContent extends React.Component {
   /** 上拉刷新 */
   _onEndReached = ({distanceFromEnd}) => {
     console.log('_onEndReached', this.state, distanceFromEnd);
-    if (distanceFromEnd <= 20) return;
     const { showFoot, pageNo, modilarId, styleId } = this.state;
     //如果是正在加载中或没有更多数据了，则返回
     if (showFoot !== 0) {
@@ -213,7 +217,7 @@ class MainContent extends React.Component {
   _renderFocus = () => {
     const { Focus } = this.state;
     const isFocus = !!Focus && Focus.length > 0;
-    console.count('!!Focus', Focus, isFocus, Focus.length)
+    // console.count('!!Focus', Focus, isFocus, Focus.length)
     return (
       <IndicatorViewPager style={styles.pageContent} autoPlayEnable={true}
         indicator={this._renderDotIndicator()}>
@@ -240,26 +244,34 @@ class MainContent extends React.Component {
 
   /** 渲染广告 Item */
   _renderItem = ({ item, index, separators }) => {
-    console.log('item', item, index, item.Title, this.state.IndexContent.length)
+    // console.log('item', item, index, item.Title, this.state.IndexContent.length)
     const { DisplayMode } = item;
+    let curCell;
     if (DisplayMode === TypeName.Main_TypeBigImg) {
-      return this._renderItemTopic(item, index);
+      curCell = this._renderItemTopic(item, index);
     } else if (DisplayMode === TypeName.Main_TypeImg) {
       // 渲染多图模式
-      return this._renderItemRecommend(item, index);
+      curCell = this._renderItemRecommend(item, index);
     } else {
-      return this._renderItemContent(item, index);
+      curCell = this._renderItemContent(item, index);
     }
+    return (<TouchableHighlight onPress={this.handlePress(item)}>
+      { curCell }
+    </TouchableHighlight>)
   } 
+
+  handlePress = item => (event) => {
+    this.props.navigation.navigate('Detail', { item });
+  }
 
   /** 渲染普通Item内容 */
   _renderItemContent = (item, index) => (
-    <View style={styles.itemContent}>
+    <View style={styles.itemContent} >
       <Image style={styles.image} source={{ uri: item.ImgUrl }} />
       <View style={styles.textContent}>
-        <Text style={styles.titleText} numberOfLines={2}>{item.Title}</Text>
+        <Text style={[styles.titleText, {flex: 1}]} numberOfLines={2}>{item.Title}</Text>
         <View style={styles.bottomContent}>
-          <Text style={styles.timeText}>{item.IssueTime}</Text>
+          <Text style={[styles.timeText, {flex: 1}]}>{item.IssueTime}</Text>
           {
             !!item.Tags && <Text style={styles.tipText}>{item.Tags}</Text>
           }
@@ -342,6 +354,7 @@ class MainContent extends React.Component {
 }
 
 const ITEM_HEIGHT = 120;
+const IMAGE_HEIGHT = 140;
 const SEPERATOR_HEIGHT = StyleSheet.hairlineWidth;
 
 const styles = StyleSheet.create({
@@ -421,39 +434,40 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   titleText: {
-    flex: 1,
     fontSize: 20
   },
   bottomContent: {    
     flexDirection: 'row'
   },
   timeText: {
-    flex: 1,
     fontSize: 12,
     color: 'grey'
   },
   tipText: {
     alignSelf: 'flex-end',
     fontSize: 10,
-    color: 'red'
+    color: 'red',
+    borderRadius: 3,
+    borderWidth: 1,
+    borderColor: 'red'
   },
 
   imageContent: {
     flex: 1,
     flexDirection: 'column',
-    height: ITEM_HEIGHT,
+    height: IMAGE_HEIGHT,
     width: wWidth,
     paddingHorizontal: 10,
     paddingVertical: 10
   },
   imgView: {
+    flex: 1,
     marginTop: 3,
     marginBottom: 3,
     flexDirection: 'row'
   },
   imageItem: {
-    width: (wWidth - 40)/3,
-    height: 50
+    width: (wWidth - 40)/3
   },
 
   itemBigImg: {
@@ -461,7 +475,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: ITEM_HEIGHT,
     width: wWidth,
-    paddingVertical: 15
+    marginTop: 15,
+    marginBottom: 15
   },
 
   footer: {

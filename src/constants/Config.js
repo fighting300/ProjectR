@@ -3,6 +3,7 @@ export const TypeName = {
   Main_TypeImg: 'DNWS003',
   Main_TypeBigImg: 'DNWS009',
   
+  Main_TemplateTopic: 'TNWS004',
 
   ServiceInit: '/MainSvr.svc',
   ServiceIndex: '/IndexSvr.svc',
